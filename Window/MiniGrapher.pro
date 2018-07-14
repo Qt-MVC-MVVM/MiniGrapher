@@ -19,8 +19,8 @@ CONFIG+=static
 static{
 QTPLUGIN+=qwindows qico
 DEFINES+=QT_PLUGIN_STATIC_LINK
-LIBS+=-L"C:\Qt\5.11.1\plugins\platforms"
-LIBS+=-L"C:\Qt\5.11.1\plugins\imageformats"
+LIBS+=-L"$(QTDIR)/plugins/platforms"
+LIBS+=-L"$(QTDIR)/plugins/imageformats"
 message("Staticbuild.")
 }
 
