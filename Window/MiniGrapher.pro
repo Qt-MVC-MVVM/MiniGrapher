@@ -4,8 +4,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = MiniGrapher
 TEMPLATE = app
-CONFIG+=static
-LIBS += -lqwindows
+
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -16,6 +15,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+CONFIG+=static
+static{
+QTPLUGIN+=qwindows qico
+DEFINES+=QT_PLUGIN_STATIC_LINK
+LIBS+=-L"C:/Qt/5.11.1/mingw53_32/plugins/platforms"
+LIBS+=-L"C:/Qt/5.11.1/mingw53_32/plugins/imageformats"
+message("Staticbuild.")
+}
 
 SOURCES += \
         main.cpp \
