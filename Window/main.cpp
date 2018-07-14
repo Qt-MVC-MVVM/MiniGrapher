@@ -1,10 +1,7 @@
-#ifdef QT_PLUGIN_STATIC_LINK
-#include<QtCore/QtPlugin>
-Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin);
-Q_IMPORT_PLUGIN(QICOPlugin);
-#endif
 #include "mainwindow.h"
 #include <QApplication>
+#include <QtCore/QtPlugin>
+Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin);
 
 int main(int argc, char *argv[])
 {
