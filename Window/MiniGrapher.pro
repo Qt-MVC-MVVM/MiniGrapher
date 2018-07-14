@@ -4,8 +4,12 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = MiniGrapher
 TEMPLATE = app
-CONFIG+=static
-LIBS += -lqwindows
+CONFIG += static
+DEFINE += static
+win32-g++: LIBS += -lQt5PlatformSupport -lqwindows
+#win32-g++: QTPLUGIN += Qt5WindowsIntegration
+win32-g++: QMAKE_LFLAGS += -static -static-libgcc -static-libstdc++
+win32-g++: QMAKE_CFLAGS += -DQT_STATICPLUGIN
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
