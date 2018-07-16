@@ -1,8 +1,14 @@
+#-------------------------------------------------
+#
+# Project created by QtCreator 2018-07-15T10:49:07
+#
+#-------------------------------------------------
+
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = MiniGrapher
+TARGET = Test01
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -19,9 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    initial.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    initial.h
 
-FORMS +=
+FORMS += \
+        mainwindow.ui \
+    initial.ui
