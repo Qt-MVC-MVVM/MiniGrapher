@@ -1,11 +1,17 @@
 #pragma once
 #include <iostream>
 #include <cmath>
+#include <string>
+
+using std::string;
 
 typedef class tree_node* pnode;
 
+#define FuncNumber 7
+const string func[] = {"ln","lg","sqrt","abs","sin","cos","tan"};
+
 enum type
-{NUMBER,ALGEBRA,OPERATOR,FUNCTION,NONE};
+{NUMBER,ALGEBRA,OPERATOR,FUNCTION,NONE,WRONGINPUT};
 
 enum Priority
 {ERROR,RightBrackets,AddSub,MulDiv,Pow,LeftBracket};
@@ -13,23 +19,16 @@ enum Priority
 class tree_node
 {
 	public:
-		tree_node();
+		void init();
 		tree_node(double x);
 		tree_node(char c);
+		tree_node( int x );
 		~tree_node();
-		bool calculate(double& ans);
-		pnode left, right;
-	private:
+		bool calculate( double& ans, double x );
+		pnode left, right, parent;
 		enum type type_;
+	private:
 		char op_;
 		double value_;
-};
-
-class prefix_tree
-{
-	public:
-		prefix_tree();
-		~prefix_tree();
-	private:
-		
+		int func;
 };

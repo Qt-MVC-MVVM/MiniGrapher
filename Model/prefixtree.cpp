@@ -1,51 +1,137 @@
 #include "prefixtree.h"
 
-tree_node::tree_node()
+void tree_node::init()
 {
-	left = right = nullptr;
+	left = right = parent = nullptr;
 	type_ = NONE;
 	op_ = value_ = 0;
+	func = 0;
 }
 
-bool tree_node::calculate(double& ans)
+tree_node::tree_node( double x )
 {
+	init();
+	type_ = NUMBER;
+	value_ = x;
+}
+
+tree_node::tree_node( char c )
+{
+	init();
+	if (c=='x')type_ = ALGEBRA;
+	else
+	{
+		type_ = OPERATOR;
+		op_ = c;
+	}
+}
+
+tree_node::tree_node( int x )
+{
+	init();
+	type_ = FUNCTION;
+	func = x;
+}
+
+
+
+tree_node::~tree_node()
+{
+}
+
+bool tree_node::calculate( double& ans, double x )
+{
+	ans = 0;
 	if (type_ == NUMBER)
 	{
 		ans = value_;return true;
 	}
+	else if(type_==ALGEBRA)
+	{
+		ans = x; return true;
+	}
 	else if (type_ == OPERATOR)
 	{
 		double l, r;
-		if (left->calculate(l) && right->calculate(r))
+		if (left->calculate( l, x )&&right->calculate( r, x ))
 		{
 			switch (op_)
 			{
-			case '+':
-			{
-				ans = l + r;return true;break;
+				case '+':
+				{
+					ans = l + r;return true;break;
+				}
+				case '-':
+				{
+					ans = l - r;return true;break;
+				}
+				case '*':
+				{
+					ans = l * r;return true;break;
+				}
+				case '/':
+				{
+					ans = l / r;return true;break;
+				}
+				case '^':
+				{
+					ans = pow(l, r);return true;break;
+				}
+				default:
+				{
+					return false;break;
+				}
 			}
-			case '-':
+		}
+		else return false;
+	}
+	else if (type_==FUNCTION)
+	{
+		double l = 0;
+		if (!left->calculate( l, x ))return false;
+		switch (func)
+		{
+			case 0:
 			{
-				ans = l - r;return true;break;
+				ans = log( l );
+				break;
 			}
-			case '*':
+			case 1:
 			{
-				ans = l * r;return true;break;
+				ans = log10( l );
+				break;
 			}
-			case '/':
+			case 2:
 			{
-				ans = l / r;return true;break;
+				ans = pow( l, 0.5 );
+				break;
 			}
-			case '^':
+			case 3:
 			{
-				ans = pow(l, r);return true;break;
+				ans = fabs( l );
+				break;
+			}
+			case 4:
+			{
+				ans = sin( l );
+				break;
+			}
+			case 5:
+			{
+				ans = cos( 1 );
+				break;
+			}
+			case 6:
+			{
+				ans = tan( l );
+				break;
 			}
 			default:
 			{
-				ans = 0;return false;break;
-			}
+				ans = 0;
+				break;
 			}
 		}
-
+		return true;
 	}
 }

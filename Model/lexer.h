@@ -1,12 +1,9 @@
 #pragma once
+#include "prefixtree.h"
 #include <string>
 #include <stack>
 
 using  std::string;
-
-#define FuncNumber 3
-
-const string func[] = { "ln","log","sqrt" };
 
 class lexer
 {
@@ -16,12 +13,15 @@ class lexer
 		enum type test_char();
 		char get_operation();
 		double get_double();
-		double get_function();
-		int priority(char c);
-		void StringToTree(string str);
+		int get_function();
+		bool strtotree();
+		double calculate( double x );
+		pnode root;
 	private:
+		void drop(pnode node);
+		int priority( char c );
 		std::stack<char> op;
-		std::stack<double> val;
+		std::stack<pnode> val;
 		int now;
 		string S;
 };
