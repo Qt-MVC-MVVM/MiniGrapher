@@ -39,35 +39,15 @@
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="widget2">
+    <widget class="QWidget" name="D2">
      <attribute name="title">
       <string>2D</string>
      </attribute>
-     <widget class="QGraphicsView" name="graphicsView_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>581</width>
-        <height>261</height>
-       </rect>
-      </property>
-     </widget>
     </widget>
-    <widget class="QWidget" name="widget">
+    <widget class="QWidget" name="D3">
      <attribute name="title">
       <string>3D</string>
      </attribute>
-     <widget class="QGraphicsView" name="graphicsView">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>581</width>
-        <height>261</height>
-       </rect>
-      </property>
-     </widget>
     </widget>
    </widget>
    <widget class="QLineEdit" name="lineEdit">
@@ -75,9 +55,22 @@
      <rect>
       <x>160</x>
       <y>340</y>
-      <width>611</width>
-      <height>41</height>
+      <width>511</width>
+      <height>31</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SubmitButton">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>340</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Submit</string>
     </property>
    </widget>
   </widget>
@@ -87,7 +80,7 @@
      <x>0</x>
      <y>0</y>
      <width>779</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>

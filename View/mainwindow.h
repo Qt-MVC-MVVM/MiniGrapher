@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtWidgets/QPushButton>
 
 namespace Ui {
 class MainWindow;
