@@ -17,7 +17,7 @@ public:
     explicit Initial(QWidget *parent = 0);
     ~Initial();
 
-protected:
+protected slots:
     void Start();
     void Quit();
 
