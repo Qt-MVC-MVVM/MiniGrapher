@@ -24,6 +24,36 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+<<<<<<< HEAD:MiniGrapher.pro
+        App/main.cpp \
+        View/mainwindow.cpp \
+    	View/initial.cpp \
+    View/sinks/mainwindowprosink.cpp \
+    View/sinks/mainwindowsetsink.cpp \
+    App/app.cpp \
+    App/commands/startcommand.cpp \
+    ViewModel/viewmodel.cpp \
+    Model/model.cpp \
+    ViewModel/sinks/viewmodelsink.cpp \
+    ViewModel/commands/viewmodelcmd.cpp
+
+HEADERS += \
+        View/mainwindow.h \
+    	View/initial.h \
+    View/sinks/mainwindowprosink.h \
+    View/sinks/mainwindowsetsink.h \
+    Common/etlbase.h \
+    App/app.h \
+    App/commands/startcommand.h \
+    ViewModel/viewmodel.h \
+    Model/model.h \
+    ViewModel/sinks/viewmodelsink.h \
+    ViewModel/commands/viewmodelcmd.h
+
+FORMS += \
+        View/mainwindow.ui \
+    	View/initial.ui
+=======
         main.cpp \
         mainwindow.cpp \
         initial.cpp \
@@ -37,3 +67,4 @@ HEADERS += \
 FORMS += \
         mainwindow.ui \
         initial.ui
+>>>>>>> 6d79f588d1ec13cbef3532f3aec32730157c67e3:View/MiniGrapher.pro

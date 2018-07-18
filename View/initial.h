@@ -16,15 +16,15 @@ class Initial : public QWidget
 public:
     explicit Initial(QWidget *parent = 0);
     ~Initial();
+    void set_ptrCommand(std::shared_ptr<ICommandBase> ptrCommand);
 
 protected slots:
-    void Start();
-    void Quit();
+    void on_StartButton_clicked();
+    void on_QuitButton_clicked();
 
 private:
     Ui::Initial *ui;
-    MainWindow *window;
-    void Init();
+    std::shared_ptr<ICommandBase> _ptrCommand;
 };
 
 #endif // INITIAL_H

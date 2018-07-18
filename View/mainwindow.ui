@@ -6,36 +6,38 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>779</width>
-    <height>451</height>
+    <width>777</width>
+    <height>493</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>MiniGrapher</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>-10</y>
-      <width>20</width>
-      <height>441</height>
+      <x>103</x>
+      <y>-9</y>
+      <width>16</width>
+      <height>471</height>
      </rect>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QTabWidget" name="tabWidget">
+   <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>10</y>
-      <width>611</width>
-      <height>311</height>
+      <x>220</x>
+      <y>20</y>
+      <width>411</width>
+      <height>41</height>
      </rect>
     </property>
+<<<<<<< HEAD
+=======
     <property name="currentIndex">
      <number>0</number>
     </property>
@@ -49,10 +51,66 @@
       <string>3D</string>
      </attribute>
     </widget>
+>>>>>>> 6d79f588d1ec13cbef3532f3aec32730157c67e3
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
+      <x>150</x>
+      <y>140</y>
+      <width>571</width>
+      <height>271</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="submitButton">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>20</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Submit</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="zoomInButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>170</y>
+      <width>91</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Zoom In</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="zoomOutButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>280</y>
+      <width>91</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Zoom Out</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_2">
+    <property name="geometry">
+     <rect>
+<<<<<<< HEAD
+      <x>260</x>
+      <y>80</y>
+      <width>71</width>
+      <height>41</height>
+=======
       <x>160</x>
       <y>340</y>
       <width>511</width>
@@ -67,10 +125,105 @@
       <y>340</y>
       <width>81</width>
       <height>31</height>
+>>>>>>> 6d79f588d1ec13cbef3532f3aec32730157c67e3
      </rect>
     </property>
     <property name="text">
      <string>Submit</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_3">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>80</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_4">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>80</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>20</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>y=f(x)=</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>80</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Range from</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>80</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>to</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>80</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Input x:</string>
     </property>
    </widget>
   </widget>
@@ -79,8 +232,13 @@
     <rect>
      <x>0</x>
      <y>0</y>
+<<<<<<< HEAD
+     <width>777</width>
+     <height>22</height>
+=======
      <width>779</width>
      <height>23</height>
+>>>>>>> 6d79f588d1ec13cbef3532f3aec32730157c67e3
     </rect>
    </property>
   </widget>

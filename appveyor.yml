@@ -7,8 +7,6 @@ install:
     set PATH=%QTDIR%\bin;C:\cygwin;C:\cygwin64;C:\MinGW\bin;%PATH%;
 build_script:
 - cmd: >-
-    cd View
-
     qmake
 
     mingw32-make release
@@ -19,8 +17,8 @@ build_script:
 
     windeployqt MiniGrapher.exe
 
-    copy /y "C:\projects\minigrapher\Src\libstdc++-6.dll" "C:\projects\minigrapher\View\release\libstdc++-6.dll"
+    copy /y "C:\projects\minigrapher\Src\libstdc++-6.dll" "C:\projects\minigrapher\release\libstdc++-6.dll"
 artifacts:
-- path: View/release/
+- path: release/
   name: MiniGrapher
   type: WebDeployPackage

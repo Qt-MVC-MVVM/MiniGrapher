@@ -42,16 +42,22 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
+<<<<<<< HEAD
+     <x>90</x>
+     <y>50</y>
+     <width>241</width>
+=======
      <x>60</x>
      <y>60</y>
      <width>281</width>
+>>>>>>> 6d79f588d1ec13cbef3532f3aec32730157c67e3
      <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Times New Roman</family>
-     <pointsize>36</pointsize>
+     <pointsize>24</pointsize>
     </font>
    </property>
    <property name="text">
