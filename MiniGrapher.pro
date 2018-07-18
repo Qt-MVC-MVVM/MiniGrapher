@@ -24,7 +24,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-<<<<<<< HEAD:MiniGrapher.pro
         App/main.cpp \
         View/mainwindow.cpp \
     	View/initial.cpp \
@@ -53,18 +52,3 @@ HEADERS += \
 FORMS += \
         View/mainwindow.ui \
     	View/initial.ui
-=======
-        main.cpp \
-        mainwindow.cpp \
-        initial.cpp \
-        d2.cpp
-
-HEADERS += \
-        mainwindow.h \
-        initial.h \
-        d2.h
-
-FORMS += \
-        mainwindow.ui \
-        initial.ui
->>>>>>> 6d79f588d1ec13cbef3532f3aec32730157c67e3:View/MiniGrapher.pro

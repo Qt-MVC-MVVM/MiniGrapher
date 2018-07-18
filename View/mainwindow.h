@@ -2,14 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-<<<<<<< HEAD
 #include "../Common/etlbase.h"
 #include "sinks/mainwindowprosink.h"
 #include "sinks/mainwindowsetsink.h"
-=======
-#include <QtWidgets/QPushButton>
-
->>>>>>> 6d79f588d1ec13cbef3532f3aec32730157c67e3
 namespace Ui {
 class MainWindow;
 }

@@ -36,22 +36,6 @@
       <height>41</height>
      </rect>
     </property>
-<<<<<<< HEAD
-=======
-    <property name="currentIndex">
-     <number>0</number>
-    </property>
-    <widget class="QWidget" name="D2">
-     <attribute name="title">
-      <string>2D</string>
-     </attribute>
-    </widget>
-    <widget class="QWidget" name="D3">
-     <attribute name="title">
-      <string>3D</string>
-     </attribute>
-    </widget>
->>>>>>> 6d79f588d1ec13cbef3532f3aec32730157c67e3
    </widget>
    <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
@@ -105,31 +89,11 @@
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-<<<<<<< HEAD
       <x>260</x>
       <y>80</y>
       <width>71</width>
       <height>41</height>
-=======
-      <x>160</x>
-      <y>340</y>
-      <width>511</width>
-      <height>31</height>
      </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="SubmitButton">
-    <property name="geometry">
-     <rect>
-      <x>690</x>
-      <y>340</y>
-      <width>81</width>
-      <height>31</height>
->>>>>>> 6d79f588d1ec13cbef3532f3aec32730157c67e3
-     </rect>
-    </property>
-    <property name="text">
-     <string>Submit</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_3">
@@ -232,13 +196,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-<<<<<<< HEAD
      <width>777</width>
      <height>22</height>
-=======
-     <width>779</width>
-     <height>23</height>
->>>>>>> 6d79f588d1ec13cbef3532f3aec32730157c67e3
     </rect>
    </property>
   </widget>
