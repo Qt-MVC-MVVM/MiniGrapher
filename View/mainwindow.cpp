@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
   ui->CustomPlot->xAxis->setLabel("x Axis");
   ui->CustomPlot->yAxis->setLabel("y Axis");
   ui->CustomPlot->legend->setVisible(true);
+
   QFont legendFont = font();
   legendFont.setPointSize(10);
   ui->CustomPlot->legend->setFont(legendFont);
@@ -193,6 +194,11 @@ void MainWindow::addRandomGraph()
   graphPen.setWidthF(rand()/(double)RAND_MAX*2+1);
   ui->CustomPlot->graph()->setPen(graphPen);
   ui->CustomPlot->replot();
+}
+
+void addGivenGraph()
+{
+
 }
 
 void MainWindow::removeSelectedGraph()

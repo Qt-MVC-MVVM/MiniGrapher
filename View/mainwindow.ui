@@ -6,47 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>810</width>
+    <height>613</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="ChartBox">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>141</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Chart</string>
-    </property>
-   </widget>
-   <widget class="QGroupBox" name="SeriesBox">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>140</y>
-      <width>141</width>
-      <height>171</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Series</string>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="SelectedBox">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>310</y>
-      <width>141</width>
-      <height>241</height>
+      <x>650</x>
+      <y>10</y>
+      <width>151</width>
+      <height>171</height>
      </rect>
     </property>
     <property name="title">
@@ -56,34 +30,86 @@
    <widget class="QCustomPlot" name="CustomPlot" native="true">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>10</x>
       <y>10</y>
       <width>621</width>
       <height>471</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="InputEdit">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>10</x>
       <y>489</y>
-      <width>531</width>
-      <height>61</height>
+      <width>621</width>
+      <height>71</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="SubmitButton">
+   <widget class="QGroupBox" name="SeriesBox">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>500</y>
-      <width>81</width>
-      <height>41</height>
+      <x>650</x>
+      <y>420</y>
+      <width>151</width>
+      <height>141</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Submit</string>
+    <property name="title">
+     <string>Series</string>
+    </property>
+    <widget class="QPushButton" name="AddGraphButton">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add Graph</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="RemoveGraphButton">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>60</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Remove Graph</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ClearAllButton">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>100</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear All</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>190</y>
+      <width>151</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Calculate</string>
     </property>
    </widget>
   </widget>
@@ -92,7 +118,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>810</width>
      <height>23</height>
     </rect>
    </property>
