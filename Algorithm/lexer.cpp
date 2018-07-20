@@ -93,7 +93,7 @@ bool lexer::strtotree()
 	while (now<S.length())
 	{
 		if (test_char()==OPERATOR)
-		{
+        {
 			if (op.empty()&&val.empty()&&S[now]=='-')
 			{
 				val.push( new tree_node( 0.0 ) );
@@ -145,19 +145,22 @@ bool lexer::strtotree()
 			last = OPERATOR;
 		}
 		else if (test_char()==NUMBER)
-		{
-			if (last==NUMBER||last==ALGEBRA)return false;
+        {
+            if (last==NUMBER||last==ALGEBRA||last==FUNCTION)return false;
+            last=NUMBER;
 			val.push( new tree_node( get_double() ) );
 		}
 		else if (test_char()==ALGEBRA)
 		{
-			if (last==NUMBER||last==ALGEBRA)return false;
+            if (last==NUMBER||last==ALGEBRA||last==FUNCTION)return false;
+            last=ALGEBRA;
 			val.push( new tree_node( 'x' ) );
 			now++;
 		}
 		else if (test_char()==FUNCTION)
 		{
-			if (last==NUMBER||last==ALGEBRA)return false;
+            if (last==NUMBER||last==ALGEBRA||last==FUNCTION)return false;
+            last=FUNCTION;
 			val.push( new tree_node( get_function() ) );
 		}
 		else return false;

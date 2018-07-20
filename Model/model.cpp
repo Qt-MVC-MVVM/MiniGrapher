@@ -6,16 +6,17 @@ Model::Model()
     lexer = std::make_shared<class lexer>();
     x = std::make_shared<QVector<double>>();
     y = std::make_shared<QVector<double>>();
+    IntegralAns = std::make_shared<double>();
+    DifferentialAns = std::make_shared<double>();
 }
 
 Model::~Model()
 {
-
 }
 
 void Model::cal(double a,double b)
 {
-
+    while(!x->empty())x->pop_back();
     while(!y->empty())y->pop_back();
     for(int i=0;i<PointNumber;i++)
     {
@@ -35,6 +36,16 @@ std::shared_ptr<QVector<double>> Model::getY()
     return y;
 }
 
+std::shared_ptr<double> Model::getDifferential()
+{
+    return DifferentialAns;
+}
+
+std::shared_ptr<double> Model::getIntegral()
+{
+    return IntegralAns;
+}
+
 bool Model::buildtree(const string str)
 {
     lexer->setstring(str);
@@ -42,16 +53,16 @@ bool Model::buildtree(const string str)
     else return false;
 }
 
-double Model::differential(double x)
+void Model::differential(double x)
 {
-    Fire_OnPropertyChanged("Lexer");
-    return lexer->differential(x);
+    *DifferentialAns=lexer->differential(x);
+    Fire_OnPropertyChanged("Differential");
 }
 
-double Model::integral(double a,double b)
+void Model::integral(double a,double b)
 {
-    Fire_OnPropertyChanged("Lexer");
-    return lexer->integral(a,b);
+    *IntegralAns=lexer->integral(a,b);
+    Fire_OnPropertyChanged("Integral");
 }
 
 std::string Model::getString()

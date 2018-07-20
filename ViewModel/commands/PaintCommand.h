@@ -11,6 +11,7 @@ class PaintCommand: public ICommandBase
 {
 public:
     PaintCommand(ViewModel *ptr_ViewModel);
+    virtual void SetParameter(const string &param,const double &param1){}
     virtual void SetParameter(const string &param,const double &param1,const double &param2);
     virtual void Exec();
 

@@ -8,15 +8,15 @@ IntegralCommand::IntegralCommand(ViewModel *ptr_ViewModel)
 
 void IntegralCommand::SetParameter(const std::string &param,const double &param1,const double &param2)
 {
-    str = param;
-    Upperbound = param2;
-    LowerBound = param1;
+    UpperBound=param2;
+    LowerBound=param1;
+    str=param;
 }
 
 void IntegralCommand::Exec()
 {
-//    ptr_ViewModel -> Exec_integral_command();
-//    ptr_ViewModel -> Fire_OnCommandComplete("IntegralCommand",true);
+    ptr_ViewModel -> Exec_integral_command(str,LowerBound,UpperBound);
+    ptr_ViewModel -> Fire_OnCommandComplete("IntegralCommand",true);
 }
 
 DifferentialCommand::DifferentialCommand(ViewModel *ptr_ViewModel)
@@ -32,6 +32,6 @@ void DifferentialCommand::SetParameter(const std::string &param, const double &p
 
 void DifferentialCommand::Exec()
 {
-//    ptr_ViewModel -> Exec_differential_command();
-//    ptr_ViewModel -> Fire_OnCommandComplete("DifferentialCommand",true);
+    ptr_ViewModel -> Exec_differential_command(str,x);
+    ptr_ViewModel -> Fire_OnCommandComplete("DifferentialCommand",true);
 }

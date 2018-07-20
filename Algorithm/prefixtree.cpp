@@ -43,15 +43,15 @@ bool tree_node::calculate( double& ans, double x )
 {
 	ans = 0;
 	if (type_ == NUMBER)
-	{
+    {
 		ans = value_;return true;
 	}
 	else if(type_==ALGEBRA)
-	{
+    {
 		ans = x; return true;
 	}
 	else if (type_ == OPERATOR)
-	{
+    {
 		double l, r;
 		if (left->calculate( l, x )&&right->calculate( r, x ))
 		{
