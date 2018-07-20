@@ -35,10 +35,14 @@ SOURCES += \
     ViewModel/viewmodel.cpp \
     Model/model.cpp \
     ViewModel/sinks/viewmodelsink.cpp \
-    ViewModel/commands/submitcommand.cpp \
+#    ViewModel/commands/submitcommand.cpp \
     Lib/brushtool.cpp \
     Lib/pentool.cpp \
-    Lib/qcustomplot.cpp
+    Lib/qcustomplot.cpp \
+    Algorithm/lexer.cpp \
+    Algorithm/prefixtree.cpp \
+#    ViewModel/commands/calculuscommand.cpp \
+    ViewModel/commands/PaintCommand.cpp
 
 HEADERS += \
         View/mainwindow.h \
@@ -51,10 +55,14 @@ HEADERS += \
     ViewModel/viewmodel.h \
     Model/model.h \
     ViewModel/sinks/viewmodelsink.h \
-    ViewModel/commands/submitcommand.h \
+#    ViewModel/commands/submitcommand.h \
     Lib/brushtool.h \
     Lib/pentool.h \
-    Lib/qcustomplot.h
+    Lib/qcustomplot.h \
+    Algorithm/lexer.h \
+    Algorithm/prefixtree.h \
+#    ViewModel/commands/calculuscommand.h \
+    ViewModel/commands/PaintCommand.h
 
 FORMS += \
         View/mainwindow.ui \
