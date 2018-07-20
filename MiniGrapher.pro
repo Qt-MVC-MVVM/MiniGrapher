@@ -41,7 +41,7 @@ SOURCES += \
     Lib/qcustomplot.cpp \
     Algorithm/lexer.cpp \
     Algorithm/prefixtree.cpp \
-#    ViewModel/commands/calculuscommand.cpp \
+    ViewModel/commands/calculuscommand.cpp \
     ViewModel/commands/PaintCommand.cpp
 
 HEADERS += \
@@ -61,7 +61,7 @@ HEADERS += \
     Lib/qcustomplot.h \
     Algorithm/lexer.h \
     Algorithm/prefixtree.h \
-#    ViewModel/commands/calculuscommand.h \
+    ViewModel/commands/calculuscommand.h \
     ViewModel/commands/PaintCommand.h
 
 FORMS += \
