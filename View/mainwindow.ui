@@ -40,8 +40,8 @@
    <widget class="QLineEdit" name="Function">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>489</y>
+      <x>100</x>
+      <y>490</y>
       <width>321</width>
       <height>71</height>
      </rect>
@@ -123,7 +123,7 @@
      <rect>
       <x>10</x>
       <y>500</y>
-      <width>91</width>
+      <width>81</width>
       <height>51</height>
      </rect>
     </property>
@@ -169,7 +169,7 @@
      <x>0</x>
      <y>0</y>
      <width>810</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>
