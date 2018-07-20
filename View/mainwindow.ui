@@ -37,14 +37,20 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="InputEdit">
+   <widget class="QLineEdit" name="Function">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>90</x>
       <y>489</y>
-      <width>621</width>
+      <width>321</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="placeholderText">
+     <string/>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QGroupBox" name="SeriesBox">
@@ -112,6 +118,50 @@
      <string>Calculate</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>500</y>
+      <width>91</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>y=f(x)=</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="LowerBound">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>490</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Input lower bound here</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="UpperBound">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>530</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Input upper bound here</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -119,7 +169,7 @@
      <x>0</x>
      <y>0</y>
      <width>810</width>
-     <height>23</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
