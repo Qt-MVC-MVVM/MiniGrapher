@@ -196,7 +196,7 @@ void MainWindow::addRandomGraph()
   ui->CustomPlot->replot();
 }
 
-void addGivenGraph()
+void MainWindow::addGivenGraph()
 {
 
 }
