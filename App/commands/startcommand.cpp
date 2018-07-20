@@ -10,7 +10,7 @@ startCommand::~startCommand()
 {
 }
 
-void startCommand::SetParameter(const int &param)
+void startCommand::SetParameter(const std::string &param,const double &param1,const double &param2)
 {
 }
 

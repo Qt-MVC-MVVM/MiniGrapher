@@ -8,7 +8,7 @@ class startCommand: public ICommandBase
 public:
     startCommand(App *ptr_App);
     ~startCommand();
-    virtual void SetParameter(const int &param);
+    virtual void SetParameter(const std::string &param,const double &param1,const double &param2);
     virtual void Exec();
 private:
     App *ptr_App;
