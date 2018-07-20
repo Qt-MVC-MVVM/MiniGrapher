@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QString>
+#include <string>
+
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
   ui(new Ui::MainWindow)
@@ -196,10 +199,6 @@ void MainWindow::addRandomGraph()
   ui->CustomPlot->replot();
 }
 
-void MainWindow::addGivenGraph()
-{
-
-}
 
 void MainWindow::removeSelectedGraph()
 {
@@ -261,9 +260,9 @@ void MainWindow::graphClicked(QCPAbstractPlottable *plottable, int dataIndex)
   ui->statusBar->showMessage(message, 2500);
 }
 
-void MainWindow::set_submit_command(std::shared_ptr<ICommandBase> ptrCommand)
+void MainWindow::set_paint_command(std::shared_ptr<ICommandBase> ptrCommand)
 {
-  submitCommand = ptrCommand;
+  PaintCommand = ptrCommand;
 }
 
 std::shared_ptr<IPropertyNotification> MainWindow::getPtrWindowProSink()
@@ -276,7 +275,48 @@ std::shared_ptr<ICommandNotification> MainWindow::getPtrWindowSetSink()
   return std::static_pointer_cast<ICommandNotification>(_ptrWindowSetSink);
 }
 
-void MainWindow::on_submitButton_clicked()
+void MainWindow::on_AddGraphButton_clicked()
 {
-  submitCommand->Exec();
+
+    bool ok(false);
+    QString qstr = ui->Function->text();
+    QString qlower = ui->LowerBound->text();
+    QString qupper = ui->UpperBound->text();
+    std::string str = qstr.toStdString();
+    double lower = qlower.toDouble(&ok);
+    double upper = qupper.toDouble(&ok);
+    PaintCommand->SetParameter(str, lower, upper);
+    PaintCommand->Exec();
+}
+
+void MainWindow::set_x(std::shared_ptr<QVector<double> > x)
+{
+    this->x = x;
+}
+
+void MainWindow::set_y(std::shared_ptr<QVector<double> > y)
+{
+    this->y = y;
+}
+
+void MainWindow::plotGraph()
+{
+
+    static int i = 0;
+
+    ui->CustomPlot->addGraph();
+    ui->CustomPlot->graph(i)->setPen(QPen(Qt::blue)); // line color blue for first graph
+    ui->CustomPlot->graph(i)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
+
+    ui->CustomPlot->xAxis2->setVisible(true);
+    ui->CustomPlot->xAxis2->setTickLabels(false);
+    ui->CustomPlot->yAxis2->setVisible(true);
+    ui->CustomPlot->yAxis2->setTickLabels(false);
+    // make left and bottom axes always transfer their ranges to right and top axes:
+    // pass data points to graphs:
+    ui->CustomPlot->graph(i)->setData(*x, *y);
+    // let the ranges scale themselves so graph 0 fits perfectly in the visible area:
+    ui->CustomPlot->graph(i)->rescaleAxes();
+    ui->CustomPlot->replot();
+    i++;
 }

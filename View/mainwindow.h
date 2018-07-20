@@ -19,10 +19,13 @@ class MainWindow : public QMainWindow
 public:
   explicit MainWindow(QWidget *parent = 0);
   ~MainWindow();
-  void set_submit_command(std::shared_ptr<ICommandBase> ptrCommand);
+  void set_paint_command(std::shared_ptr<ICommandBase> ptrCommand);
   std::shared_ptr<IPropertyNotification> getPtrWindowProSink(void);
   std::shared_ptr<ICommandNotification> getPtrWindowSetSink(void);
-  void on_submitButton_clicked();
+
+  void set_x(std::shared_ptr<QVector<double>> x);
+  void set_y(std::shared_ptr<QVector<double>> y);
+  void plotGraph();
 
 private slots:
   void titleDoubleClick(QMouseEvent *event);
@@ -32,18 +35,20 @@ private slots:
   void mousePress();
   void mouseWheel();
   void addRandomGraph();
-  void addGivenGraph();
   void removeSelectedGraph();
   void removeAllGraphs();
   void contextMenuRequest(QPoint pos);
   void moveLegend();
   void graphClicked(QCPAbstractPlottable *plottable, int dataIndex);
+  void on_AddGraphButton_clicked();
 
 private:
   Ui::MainWindow *ui;
   std::shared_ptr<mainWindowProSink> _ptrWindowProSink;
   std::shared_ptr<mainWindowSetSink> _ptrWindowSetSink;
-  std::shared_ptr<ICommandBase> submitCommand;
+
+  std::shared_ptr<ICommandBase> PaintCommand;
+  std::shared_ptr<QVector<double>> x,y;
 
 };
 
