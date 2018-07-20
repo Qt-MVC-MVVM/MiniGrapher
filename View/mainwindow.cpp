@@ -283,8 +283,13 @@ void MainWindow::on_AddGraphButton_clicked()
     QString qlower = ui->LowerBound->text();
     QString qupper = ui->UpperBound->text();
     std::string str = qstr.toStdString();
-    double lower = qlower.toDouble(&ok);
-    double upper = qupper.toDouble(&ok);
+    double lower, upper;
+    if(qlower.isEmpty())
+        lower = -10;
+    else lower = qlower.toDouble(&ok);
+    if(qupper.isEmpty())
+        upper = 10;
+    else upper = qupper.toDouble(&ok);
     PaintCommand->SetParameter(str, lower, upper);
     PaintCommand->Exec();
 }
