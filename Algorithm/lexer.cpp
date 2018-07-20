@@ -1,15 +1,28 @@
 #include "lexer.h"
 #include "prefixtree.h"
 
+lexer::lexer()
+{
+    now = 0;
+    root = nullptr;
+}
+
 lexer::lexer(string str)
 {
 	now = 0;
 	S = str;
+    root = nullptr;
 }
 
 lexer::~lexer()
 {
 	drop( root );
+}
+
+void lexer::setstring(string str)
+{
+    S = str;
+    now = 0;
 }
 
 enum type lexer::test_char()
@@ -67,8 +80,14 @@ int lexer::get_function()
 	return 0;
 }
 
+string lexer::getString()
+{
+    return S;
+}
+
 bool lexer::strtotree()
 {
+    drop( root );
 	root = nullptr;
 	enum type last = NONE;
 	while (now<S.length())
@@ -113,7 +132,7 @@ bool lexer::strtotree()
 					while (!op.empty()&&priority( op.top() )>=priority( S[now] )&&op.top()!='(')
 					{
 						pnode temp = new tree_node( op.top() );
-						temp->right = val.top(); val.pop();
+                        temp->right = val.top(); val.pop();
 						temp->left = val.top(); val.pop();
 						temp->left->parent = temp->right->parent = temp;
 						op.pop();
@@ -163,6 +182,30 @@ double lexer::calculate( double x )
 	if (!root)return 0.0;
 	else if(root->calculate( ans, x ))return ans;
 	return 0.0;
+}
+
+double lexer::integral( double a, double b )
+{
+	int n = 1;
+	double delta = 1e-5, error = 0, ans = calculate( a )+calculate( b );
+	do
+	{
+		double last = ans;
+		for(int i=0;i<n;i++)
+		{
+			ans += 2*calculate( a+(b-a)/(2*n)*(2*i+1) );
+		}
+		error = fabs( last/(n*2)-ans/(n*4) );
+		n *= 2;
+	}
+	while (error>delta);
+	return ans*(b-a)/(n*2);
+}
+
+double lexer::differential( double x )
+{
+	double delta = 1e-5;
+	return (calculate( x+delta )+calculate( x-delta ))/(2*delta);
 }
 
 void lexer::drop( pnode node )

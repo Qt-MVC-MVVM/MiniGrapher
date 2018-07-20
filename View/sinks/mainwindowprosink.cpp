@@ -8,6 +8,9 @@ mainWindowProSink::mainWindowProSink(MainWindow *ptr)
 
 void mainWindowProSink::OnPropertyChanged(const std::string &str)
 {
-
+    if(str == "Lexer")
+    {
+        ptr_MainWindow->plotGraph();
+    }
 }
 
