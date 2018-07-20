@@ -289,6 +289,16 @@ void MainWindow::on_AddGraphButton_clicked()
     PaintCommand->Exec();
 }
 
+void MainWindow::on_RemoveGraphButton_clicked()
+{
+    removeSelectedGraph();
+}
+
+void MainWindow::on_ClearAllButton_clicked()
+{
+    removeAllGraphs();
+}
+
 void MainWindow::set_x(std::shared_ptr<QVector<double> > x)
 {
     this->x = x;
