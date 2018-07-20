@@ -1,6 +1,6 @@
 #ifndef VIEWMODELCMD_H
 #define VIEWMODELCMD_H
-
+#include <string>
 #include "../../Common/etlbase.h"
 
 using std::string;
