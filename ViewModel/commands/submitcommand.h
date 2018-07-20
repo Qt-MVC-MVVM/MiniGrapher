@@ -2,9 +2,9 @@
 #define SUBMITCOMMAND_H
 
 #include "../../Common/etlbase.h"
-
+//#include "../viewmodel.h"
 class ViewModel;
-class SubmitCommand
+class SubmitCommand: public ICommandBase
 {
 public:
     SubmitCommand(ViewModel *ptr_ViewModel);

@@ -3,9 +3,8 @@
 
 #include <QWidget>
 #include <QMovie>
-#include <QtWidgets/QMainWindow>
 #include "mainwindow.h"
-
+#include "../Common/etlbase.h"
 namespace Ui {
 class Initial;
 }
@@ -17,14 +16,15 @@ class Initial : public QWidget
 public:
     explicit Initial(QWidget *parent = 0);
     ~Initial();
+    void set_start_command(std::shared_ptr<ICommandBase> start_command);
 
 protected slots:
-    void Start();
-    void Quit();
+    void on_StartButton_clicked();
+    void on_QuitButton_clicked();
 
 private:
     Ui::Initial *ui;
-    MainWindow *window;
+    std::shared_ptr<ICommandBase> startCommand;
 };
 
 #endif // INITIAL_H

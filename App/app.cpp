@@ -14,13 +14,13 @@ void App::run()
     viewmodel = std::make_shared<ViewModel>();
     viewmodel->setModel(model);
 
-    mainWindow.set_ptrCommand(viewmodel->getLayoutCmd());
+    mainWindow.set_submit_command(viewmodel->getSubmitCmd());
 
     viewmodel->AddPropertyNotification(mainWindow.getPtrWindowProSink());
     viewmodel->AddCommandNotification(mainWindow.getPtrWindowSetSink());
 
     ptr_startCommand = std::make_shared<startCommand>(this);
 
-    initWindow.set_ptrCommand(std::static_pointer_cast<ICommandBase>(this->ptr_startCommand));
+    initWindow.set_start_command(std::static_pointer_cast<ICommandBase>(this->ptr_startCommand));
     initWindow.show();
 }

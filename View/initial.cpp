@@ -6,9 +6,6 @@ Initial::Initial(QWidget *parent) :
     ui(new Ui::Initial)
 {
     ui->setupUi(this);
-    connect(ui->QuitButton, SIGNAL(clicked(bool)), this, SLOT(Quit()));
-    connect(ui->StartButton, SIGNAL(clicked(bool)), this, SLOT(Start()));
-    this->show();
 }
 
 Initial::~Initial()
@@ -16,21 +13,16 @@ Initial::~Initial()
     delete ui;
 }
 
-void Initial::Start()
+void Initial::set_start_command(std::shared_ptr<ICommandBase> start_command)
 {
-    this->hide();
-    /*
-    window = new QMainWindow;
-    widget = new MainWidget;
-    window->setCentralWidget(widget);
-    window->resize(900, 600);
-    window->show();
-    */
-    window = new MainWindow;
-    window->show();
+    startCommand = start_command;
+}
+void Initial::on_StartButton_clicked()
+{
+    startCommand->Exec();
 }
 
-void Initial::Quit()
+void Initial::on_QuitButton_clicked()
 {
-    this->close();
+    qApp->exit(0);
 }

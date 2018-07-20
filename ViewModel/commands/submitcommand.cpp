@@ -12,7 +12,7 @@ void SubmitCommand::SetParameter(const int &param)
 
 void SubmitCommand::Exec()
 {
-    ptr_ViewModel->execSubmitCmd();
-    ptr_ViewModel->Fire_OnCommandComplete("SubmitCmd", true);
+    //ptr_ViewModel->execSubmitCmd();
+    //ptr_ViewModel->Fire_OnCommandComplete("SubmitCmd", true);
 }
 

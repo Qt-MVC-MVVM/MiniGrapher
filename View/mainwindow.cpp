@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
   srand(QDateTime::currentDateTime().toTime_t());
   ui->setupUi(this);
+  _ptrWindowProSink= std::make_shared<mainWindowProSink>(mainWindowProSink(this));
+  _ptrWindowSetSink=std::make_shared<mainWindowSetSink>(mainWindowSetSink(this));
 
   ui->CustomPlot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectAxes |
                                   QCP::iSelectLegend | QCP::iSelectPlottables);
@@ -253,6 +255,22 @@ void MainWindow::graphClicked(QCPAbstractPlottable *plottable, int dataIndex)
   ui->statusBar->showMessage(message, 2500);
 }
 
+void MainWindow::set_submit_command(std::shared_ptr<ICommandBase> ptrCommand)
+{
+  submitCommand = ptrCommand;
+}
 
+std::shared_ptr<IPropertyNotification> MainWindow::getPtrWindowProSink()
+{
+  return std::static_pointer_cast<IPropertyNotification>(_ptrWindowProSink);
+}
 
+std::shared_ptr<ICommandNotification> MainWindow::getPtrWindowSetSink()
+{
+  return std::static_pointer_cast<ICommandNotification>(_ptrWindowSetSink);
+}
 
+void MainWindow::on_submitButton_clicked()
+{
+  submitCommand->Exec();
+}
