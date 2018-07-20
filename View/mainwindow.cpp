@@ -199,6 +199,25 @@ void MainWindow::addRandomGraph()
   ui->CustomPlot->replot();
 }
 
+void MainWindow::plotGraph()
+{
+    ui->CustomPlot->addGraph();
+    ui->CustomPlot->graph()->setName(QString("New graph %1").arg(ui->CustomPlot->graphCount()-1));
+    ui->CustomPlot->xAxis2->setVisible(true);
+    ui->CustomPlot->xAxis2->setTickLabels(false);
+    ui->CustomPlot->yAxis2->setVisible(true);
+    ui->CustomPlot->yAxis2->setTickLabels(false);
+
+    // make left and bottom axes always transfer their ranges to right and top axes:
+    // pass data points to graphs:
+    ui->CustomPlot->graph()->setData(*x, *y);
+    // let the ranges scale themselves so graph 0 fits perfectly in the visible area:
+    ui->CustomPlot->graph()->rescaleAxes();
+
+    ui->CustomPlot->graph()->setPen(QPen(Qt::blue)); // line color blue for first graph
+    ui->CustomPlot->graph()->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
+    ui->CustomPlot->replot();
+}
 
 void MainWindow::removeSelectedGraph()
 {
@@ -283,25 +302,27 @@ void MainWindow::on_AddGraphButton_clicked()
     QString qlower = ui->LowerBound->text();
     QString qupper = ui->UpperBound->text();
     std::string str = qstr.toStdString();
-    double lower, upper;
-    if(qlower.isEmpty())
-        lower = -10;
-    else lower = qlower.toDouble(&ok);
-    if(qupper.isEmpty())
-        upper = 10;
-    else upper = qupper.toDouble(&ok);
+
+    double lower = qlower.isEmpty()? -10: qlower.toDouble(&ok);
+    double upper = qupper.isEmpty()?  10: qupper.toDouble(&ok);
+
     PaintCommand->SetParameter(str, lower, upper);
     PaintCommand->Exec();
 }
 
 void MainWindow::on_RemoveGraphButton_clicked()
 {
-    removeSelectedGraph();
+    if (ui->CustomPlot->selectedGraphs().size() > 0)
+    {
+      ui->CustomPlot->removeGraph(ui->CustomPlot->selectedGraphs().first());
+      ui->CustomPlot->replot();
+    }
 }
 
 void MainWindow::on_ClearAllButton_clicked()
 {
-    removeAllGraphs();
+    ui->CustomPlot->clearGraphs();
+    ui->CustomPlot->replot();
 }
 
 void MainWindow::set_x(std::shared_ptr<QVector<double> > x)
@@ -312,26 +333,4 @@ void MainWindow::set_x(std::shared_ptr<QVector<double> > x)
 void MainWindow::set_y(std::shared_ptr<QVector<double> > y)
 {
     this->y = y;
-}
-
-void MainWindow::plotGraph()
-{
-
-    static int i = 0;
-
-    ui->CustomPlot->addGraph();
-    ui->CustomPlot->graph(i)->setPen(QPen(Qt::blue)); // line color blue for first graph
-    ui->CustomPlot->graph(i)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
-
-    ui->CustomPlot->xAxis2->setVisible(true);
-    ui->CustomPlot->xAxis2->setTickLabels(false);
-    ui->CustomPlot->yAxis2->setVisible(true);
-    ui->CustomPlot->yAxis2->setTickLabels(false);
-    // make left and bottom axes always transfer their ranges to right and top axes:
-    // pass data points to graphs:
-    ui->CustomPlot->graph(i)->setData(*x, *y);
-    // let the ranges scale themselves so graph 0 fits perfectly in the visible area:
-    ui->CustomPlot->graph(i)->rescaleAxes();
-    ui->CustomPlot->replot();
-    i++;
 }
