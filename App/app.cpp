@@ -14,9 +14,7 @@ void App::run()
     viewmodel = std::make_shared<ViewModel>();
     viewmodel->setModel(model);
 
-    mainWindow.set_paint_command(viewmodel->getPaintCmd());
-    mainWindow.set_x(viewmodel->getX());
-    mainWindow.set_y(viewmodel->getY());
+    mainWindow.set_submit_command(viewmodel->getSubmitCmd());
 
     viewmodel->AddPropertyNotification(mainWindow.getPtrWindowProSink());
     viewmodel->AddCommandNotification(mainWindow.getPtrWindowSetSink());

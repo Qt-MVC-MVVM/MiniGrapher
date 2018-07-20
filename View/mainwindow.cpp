@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
   ui->CustomPlot->xAxis->setLabel("x Axis");
   ui->CustomPlot->yAxis->setLabel("y Axis");
   ui->CustomPlot->legend->setVisible(true);
+
   QFont legendFont = font();
   legendFont.setPointSize(10);
   ui->CustomPlot->legend->setFont(legendFont);
@@ -195,6 +196,11 @@ void MainWindow::addRandomGraph()
   ui->CustomPlot->replot();
 }
 
+void addGivenGraph()
+{
+
+}
+
 void MainWindow::removeSelectedGraph()
 {
   if (ui->CustomPlot->selectedGraphs().size() > 0)
@@ -255,9 +261,9 @@ void MainWindow::graphClicked(QCPAbstractPlottable *plottable, int dataIndex)
   ui->statusBar->showMessage(message, 2500);
 }
 
-void MainWindow::set_paint_command(std::shared_ptr<ICommandBase> ptrCommand)
+void MainWindow::set_submit_command(std::shared_ptr<ICommandBase> ptrCommand)
 {
-  PaintCommand = ptrCommand;
+  submitCommand = ptrCommand;
 }
 
 std::shared_ptr<IPropertyNotification> MainWindow::getPtrWindowProSink()
@@ -270,36 +276,7 @@ std::shared_ptr<ICommandNotification> MainWindow::getPtrWindowSetSink()
   return std::static_pointer_cast<ICommandNotification>(_ptrWindowSetSink);
 }
 
-void MainWindow::on_SubmitButton_clicked()
+void MainWindow::on_submitButton_clicked()
 {
-    PaintCommand->Exec();
-}
-
-void MainWindow::set_x(std::shared_ptr<QVector<double> > x)
-{
-    this->x = x;
-}
-
-void MainWindow::set_y(std::shared_ptr<QVector<double> > y)
-{
-    this->y = y;
-}
-
-void MainWindow::plotGraph()
-{
-    ui->CustomPlot->addGraph();
-    ui->CustomPlot->graph(0)->setPen(QPen(Qt::blue)); // line color blue for first graph
-    ui->CustomPlot->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
-
-    ui->CustomPlot->xAxis2->setVisible(true);
-    ui->CustomPlot->xAxis2->setTickLabels(false);
-    ui->CustomPlot->yAxis2->setVisible(true);
-    ui->CustomPlot->yAxis2->setTickLabels(false);
-    // make left and bottom axes always transfer their ranges to right and top axes:
-//        connect(ui->plot->xAxis, SIGNAL(rangeChanged(QCPRange)), ui->plot->xAxis2, SLOT(setRange(QCPRange)));
-//        connect(ui->plot->yAxis, SIGNAL(rangeChanged(QCPRange)), ui->plot->yAxis2, SLOT(setRange(QCPRange)));
-    // pass data points to graphs:
-    ui->CustomPlot->graph(0)->setData(*x, *y);
-    // let the ranges scale themselves so graph 0 fits perfectly in the visible area:
-    ui->CustomPlot->graph(0)->rescaleAxes();
+  submitCommand->Exec();
 }
