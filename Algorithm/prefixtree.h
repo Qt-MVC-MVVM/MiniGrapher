@@ -13,13 +13,8 @@ const string func[] = {"ln","lg","sqrt","abs","sin","cos","tan"};
 enum type
 {NUMBER,ALGEBRA,OPERATOR,FUNCTION,NONE,WRONGINPUT};
 
-
-#define ERROR 0
-#define RightBrackets 1
-#define AddSub 2
-#define MulDiv 3
-#define Pow 4
-#define LeftBracket 5
+enum prior
+{ERROR1,RightBrackets1,AddSub1,MulDiv1,Pow1,LeftBrackets1};
 
 class tree_node
 {

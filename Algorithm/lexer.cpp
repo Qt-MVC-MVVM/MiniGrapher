@@ -181,7 +181,7 @@ double lexer::calculate( double x )
 	double ans = 0;
 	if (!root)return 0.0;
 	else if(root->calculate( ans, x ))
-		return ans;
+ 		return ans;
 	return 0.0;
 }
 
@@ -221,14 +221,14 @@ int lexer::priority( char c )
 {
 	switch (c)
 	{
-		case '+':return AddSub;
-		case '-':return AddSub;
-		case '*':return MulDiv;
-		case '/':return MulDiv;
-		case '^':return Pow;
-		case '(':return LeftBracket;
-		case ')':return RightBrackets;
-		default: return ERROR;
+		case '+':return AddSub1;
+		case '-':return AddSub1;
+		case '*':return MulDiv1;
+		case '/':return MulDiv1;
+		case '^':return Pow1;
+		case '(':return LeftBrackets1;
+		case ')':return RightBrackets1;
+		default: return ERROR1;
 	}
 }
 
