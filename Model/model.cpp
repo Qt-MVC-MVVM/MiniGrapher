@@ -1,4 +1,5 @@
 #include "model.h"
+#include <iostream>
 
 Model::Model()
 {
@@ -12,13 +13,14 @@ Model::~Model()
 
 }
 
-void Model::cal(int a,int b)
+void Model::cal(double a,double b)
 {
+	qDebug()<<a<<" "<<b;
     while(!y->empty())y->pop_back();
     for(int i=0;i<PointNumber;i++)
     {
-        x->push_back(a+(b-a)*1.0/PointNumber);
-        y->push_back(lexer->calculate(a+(b-a)*1.0/PointNumber));
+        x->push_back(a+(b-a)*i*1.0/PointNumber);
+        y->push_back(lexer->calculate((*x)[i]));
     }
     Fire_OnPropertyChanged("Lexer");
 }

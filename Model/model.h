@@ -15,7 +15,7 @@ class Model: public Proxy_PropertyNotification<Model>, public Proxy_CommandNotif
 public:
     Model();
     ~Model();
-    void cal(int a,int b);
+    void cal(double a,double b);
     bool buildtree(const std::string str);
     double differential(double x);
     double integral(double a,double b);

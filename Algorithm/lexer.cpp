@@ -180,7 +180,8 @@ double lexer::calculate( double x )
 {
 	double ans = 0;
 	if (!root)return 0.0;
-	else if(root->calculate( ans, x ))return ans;
+	else if(root->calculate( ans, x ))
+		return ans;
 	return 0.0;
 }
 
