@@ -12,5 +12,15 @@ void mainWindowProSink::OnPropertyChanged(const std::string &str)
     {
         ptr_MainWindow->plotGraph();
     }
+    else if(str == "Differential")
+    {
+        ptr_MainWindow->showDifferential();
+        ptr_MainWindow->update();
+    }
+    else if(str == "Integral")
+    {
+        ptr_MainWindow->showIntegral();
+        ptr_MainWindow->update();
+    }
 }
 

@@ -20,12 +20,18 @@ public:
   explicit MainWindow(QWidget *parent = 0);
   ~MainWindow();
   void set_paint_command(std::shared_ptr<ICommandBase> ptrCommand);
+  void set_differential_command(std::shared_ptr<ICommandBase> ptrCommand);
+  void set_integral_command(std::shared_ptr<ICommandBase> ptrCommand);
   std::shared_ptr<IPropertyNotification> getPtrWindowProSink(void);
   std::shared_ptr<ICommandNotification> getPtrWindowSetSink(void);
 
   void set_x(std::shared_ptr<QVector<double>> x);
   void set_y(std::shared_ptr<QVector<double>> y);
   void plotGraph();
+  void setIntegral(std::shared_ptr<double> IntegralAns);
+  void setDifferential(std::shared_ptr<double> DifferentialAns);
+  void showDifferential();
+  void showIntegral();
 
 private slots:
   void titleDoubleClick(QMouseEvent *event);
@@ -50,7 +56,10 @@ private:
   std::shared_ptr<mainWindowSetSink> _ptrWindowSetSink;
 
   std::shared_ptr<ICommandBase> PaintCommand;
+  std::shared_ptr<ICommandBase> DifferentialCommand;
+  std::shared_ptr<ICommandBase> IntegralCommand;
   std::shared_ptr<QVector<double>> x,y;
+  std::shared_ptr<double> IntegralAns,DifferentialAns;
 
 };
 

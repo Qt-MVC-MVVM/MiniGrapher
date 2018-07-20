@@ -15,8 +15,12 @@ void App::run()
     viewmodel->setModel(model);
 
     mainWindow.set_paint_command(viewmodel->getPaintCmd());
+    mainWindow.set_differential_command(viewmodel->getDifferentialCmd());
+    mainWindow.set_integral_command(viewmodel->getIntegralCmd());
     mainWindow.set_x(viewmodel->getX());
     mainWindow.set_y(viewmodel->getY());
+    mainWindow.setDifferential(viewmodel->getDifferential());
+    mainWindow.setIntegral(viewmodel->getIntegral());
 
     viewmodel->AddPropertyNotification(mainWindow.getPtrWindowProSink());
     viewmodel->AddCommandNotification(mainWindow.getPtrWindowSetSink());

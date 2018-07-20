@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <string>
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
@@ -219,6 +220,34 @@ void MainWindow::plotGraph()
     ui->CustomPlot->replot();
 }
 
+void MainWindow::setIntegral(std::shared_ptr<double> IntegralAns)
+{
+    this->IntegralAns = IntegralAns;
+    qDebug() << "set Integral: " << *IntegralAns;
+}
+
+void MainWindow::setDifferential(std::shared_ptr<double> DifferentialAns)
+{
+    this->DifferentialAns = DifferentialAns;
+    this->update();
+    qDebug() << "set Differential: " << *DifferentialAns;
+}
+
+void MainWindow::showDifferential()
+{
+    ui->Differential->setText(QString::number(*DifferentialAns));
+    this->update();
+    qDebug() << "show Differential: " << *DifferentialAns;
+    qDebug() << "labelDiff: " << ui->Differential->text();
+}
+
+void MainWindow::showIntegral()
+{
+    ui->Integral->setText(QString::number(*IntegralAns));
+    qDebug() << "show Integral: " << *IntegralAns;
+    qDebug() << "labelInt: " << ui->Integral->text();
+}
+
 void MainWindow::removeSelectedGraph()
 {
   if (ui->CustomPlot->selectedGraphs().size() > 0)
@@ -284,6 +313,16 @@ void MainWindow::set_paint_command(std::shared_ptr<ICommandBase> ptrCommand)
   PaintCommand = ptrCommand;
 }
 
+void MainWindow::set_differential_command(std::shared_ptr<ICommandBase> ptrCommand)
+{
+    DifferentialCommand = ptrCommand;
+}
+
+void MainWindow::set_integral_command(std::shared_ptr<ICommandBase> ptrCommand)
+{
+    IntegralCommand = ptrCommand;
+}
+
 std::shared_ptr<IPropertyNotification> MainWindow::getPtrWindowProSink()
 {
   return std::static_pointer_cast<IPropertyNotification>(_ptrWindowProSink);
@@ -308,6 +347,12 @@ void MainWindow::on_AddGraphButton_clicked()
 
     PaintCommand->SetParameter(str, lower, upper);
     PaintCommand->Exec();
+
+    DifferentialCommand->SetParameter(str, lower);
+    DifferentialCommand->Exec();
+
+    IntegralCommand->SetParameter(str, lower, upper);
+    IntegralCommand->Exec();
 }
 
 void MainWindow::on_RemoveGraphButton_clicked()
