@@ -22,6 +22,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+INCLUDEPATH += Lib
 
 SOURCES += \
         App/main.cpp \
@@ -34,7 +35,10 @@ SOURCES += \
     ViewModel/viewmodel.cpp \
     Model/model.cpp \
     ViewModel/sinks/viewmodelsink.cpp \
-    ViewModel/commands/viewmodelcmd.cpp
+    ViewModel/commands/submitcommand.cpp \
+    Lib/brushtool.cpp \
+    Lib/pentool.cpp \
+    Lib/qcustomplot.cpp
 
 HEADERS += \
         View/mainwindow.h \
@@ -47,7 +51,10 @@ HEADERS += \
     ViewModel/viewmodel.h \
     Model/model.h \
     ViewModel/sinks/viewmodelsink.h \
-    ViewModel/commands/viewmodelcmd.h
+    ViewModel/commands/submitcommand.h \
+    Lib/brushtool.h \
+    Lib/pentool.h \
+    Lib/qcustomplot.h
 
 FORMS += \
         View/mainwindow.ui \
