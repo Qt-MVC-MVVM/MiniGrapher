@@ -1,5 +1,5 @@
 #include "model.h"
-#include <iostream>
+
 
 Model::Model()
 {
@@ -15,7 +15,7 @@ Model::~Model()
 
 void Model::cal(double a,double b)
 {
-	qDebug()<<a<<" "<<b;
+
     while(!y->empty())y->pop_back();
     for(int i=0;i<PointNumber;i++)
     {
