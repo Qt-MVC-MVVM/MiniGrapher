@@ -36,8 +36,8 @@ SOURCES += \
     Model/model.cpp \
     ViewModel/sinks/viewmodelsink.cpp \
 #    ViewModel/commands/submitcommand.cpp \
-    Lib/brushtool.cpp \
-    Lib/pentool.cpp \
+    View/brushtool.cpp \
+    View/pentool.cpp \
     Lib/qcustomplot.cpp \
     Algorithm/lexer.cpp \
     Algorithm/prefixtree.cpp \
@@ -56,8 +56,8 @@ HEADERS += \
     Model/model.h \
     ViewModel/sinks/viewmodelsink.h \
 #    ViewModel/commands/submitcommand.h \
-    Lib/brushtool.h \
-    Lib/pentool.h \
+    View/brushtool.h \
+    View/pentool.h \
     Lib/qcustomplot.h \
     Algorithm/lexer.h \
     Algorithm/prefixtree.h \

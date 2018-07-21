@@ -7,6 +7,8 @@
 #include "sinks/mainwindowprosink.h"
 #include "sinks/mainwindowsetsink.h"
 #include "qcustomplot.h"
+#include "brushtool.h"
+#include "pentool.h"
 
 namespace Ui {
 class MainWindow;
@@ -49,9 +51,11 @@ private slots:
   void on_AddGraphButton_clicked();
   void on_RemoveGraphButton_clicked();
   void on_ClearAllButton_clicked();
+  void updateGraphSettings();
 
 private:
   Ui::MainWindow *ui;
+
   std::shared_ptr<mainWindowProSink> _ptrWindowProSink;
   std::shared_ptr<mainWindowSetSink> _ptrWindowSetSink;
 
@@ -61,6 +65,9 @@ private:
   std::shared_ptr<QVector<double>> x,y;
   std::shared_ptr<double> IntegralAns,DifferentialAns;
 
+  BrushTool *m_brushTool;
+  PenTool *m_penTool;
+  QCPGraph *m_graph;
 };
 
 #endif // MAINWINDOW_H
