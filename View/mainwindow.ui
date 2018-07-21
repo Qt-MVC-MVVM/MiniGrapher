@@ -131,7 +131,7 @@
      </rect>
     </property>
     <property name="placeholderText">
-     <string/>
+     <string>&lt;Input function equation here&gt;</string>
     </property>
     <property name="clearButtonEnabled">
      <bool>false</bool>
@@ -256,7 +256,7 @@
      </rect>
     </property>
     <property name="placeholderText">
-     <string>Input lower bound here</string>
+     <string>&lt;Input lower bound here&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="UpperBound">
@@ -269,7 +269,7 @@
      </rect>
     </property>
     <property name="placeholderText">
-     <string>Input upper bound here</string>
+     <string>&lt;Input upper bound here&gt;</string>
     </property>
    </widget>
    <widget class="QGroupBox" name="IntegralGroupBox">

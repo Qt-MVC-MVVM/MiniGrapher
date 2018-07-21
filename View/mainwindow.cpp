@@ -228,6 +228,8 @@ void MainWindow::addRandomGraph()
   if (ui->CustomPlot->graphCount() > 0)
         ui->CustomPlot->legend->setVisible(true);
 
+  ui->Function->clear();
+
   ui->CustomPlot->replot();
 }
 
@@ -251,6 +253,8 @@ void MainWindow::plotGraph()
 
     if (ui->CustomPlot->graphCount() > 0)
           ui->CustomPlot->legend->setVisible(true);
+
+    ui->Function->clear();
 
     ui->CustomPlot->replot();
 }
@@ -282,12 +286,11 @@ void MainWindow::removeSelectedGraph()
 
     ui->m_pen->setText(PenTool::name(QPen(Qt::blue)));
     ui->m_brush->setText(BrushTool::name(QBrush(QColor(0, 0, 255, 20))));
-
-    ui->m_graphName->setText("<click a graph>");
     m_graph = 0;
 
     ui->CustomPlot->removeGraph(ui->CustomPlot->selectedGraphs().first());
 
+    ui->m_graphName->clear();
     if (ui->CustomPlot->graphCount() <= 0)
           ui->CustomPlot->legend->setVisible(false);
 
@@ -299,12 +302,11 @@ void MainWindow::removeAllGraphs()
 {
   ui->m_pen->setText(PenTool::name(QPen(Qt::blue)));
   ui->m_brush->setText(BrushTool::name(QBrush(QColor(0, 0, 255, 20))));
-
-  ui->m_graphName->setText("<click a graph>");
   m_graph = 0;
 
   ui->CustomPlot->clearGraphs();
 
+  ui->m_graphName->clear();
   if (ui->CustomPlot->graphCount() <= 0)
         ui->CustomPlot->legend->setVisible(false);
 
