@@ -184,8 +184,12 @@ bool lexer::strtotree()
 		op.pop();
 		val.push( temp );
 	}
-	if (!val.empty())root = val.top();
-	else root = nullptr;
+    if (!val.empty())
+    {
+        root = val.top();
+        val.pop();
+    }
+    else root = nullptr;
 	return true;
 }
 
@@ -201,7 +205,7 @@ double lexer::calculate( double x )
 double lexer::integral( double a, double b )
 {
 	int n = 1;
-    double delta = 1e-6, error = 0, ans = calculate( a )+calculate( b );
+    double delta = 1e-10, error = 0, ans = calculate( a )+calculate( b );
 	do
 	{
 		double last = ans;
@@ -209,8 +213,7 @@ double lexer::integral( double a, double b )
 		{
 			ans += 2*calculate( a+(b-a)/(2*n)*(2*i+1) );
 		}
-        error = fabs( last/(n*2)-ans/(n*4) );
-        delta=ans*(b-a)/(n*4)/1e8;
+		error = fabs( last/(n*2)-ans/(n*4) );
 		n *= 2;
 	}
 	while (error>delta);
@@ -220,7 +223,7 @@ double lexer::integral( double a, double b )
 double lexer::differential( double x )
 {
     double delta = 1e-10;
-    return (calculate( x+delta )-calculate( x-delta ))/(2*delta);
+	return (calculate( x+delta )+calculate( x-delta ))/(2*delta);
 }
 
 void lexer::drop( pnode node )
@@ -229,6 +232,7 @@ void lexer::drop( pnode node )
 	drop( node->left );
 	drop( node->right );
 	delete node;
+    node=nullptr;
 }
 
 int lexer::priority( char c )

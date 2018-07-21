@@ -15,5 +15,7 @@ void PaintCommand::SetParameter(const string &param,const double &param1,const d
 
 void PaintCommand::Exec()
 {
-    ptr_ViewModel -> Exec_paint_command(str,LowerBound,UpperBound);
+    if(ptr_ViewModel -> CalcCoordinate(str,LowerBound,UpperBound))
+        ptr_ViewModel -> Fire_OnCommandComplete("PaintCommand",true);
+    else ptr_ViewModel -> Fire_OnCommandComplete("PaintCommand",false);
 }

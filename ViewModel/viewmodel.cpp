@@ -35,30 +35,28 @@ std::shared_ptr<ICommandBase> ViewModel::getPaintCmd()
     return std::static_pointer_cast<ICommandBase>(ptr_PaintCmd);
 }
 
- void ViewModel::Exec_differential_command(const std::string &str, const double &x)
+ void ViewModel::CalcDifferential(const std::string &str, const double &x)
  {
      if(str!=ptr_Model->getString())ptr_Model->buildtree(str);
      ptr_Model->differential(x);
  }
 
- void ViewModel::Exec_integral_command(const std::string &str, const double &left, const double &right)
+ void ViewModel::CalcIntegral(const std::string &str, const double &left, const double &right)
  {
      if(str!=ptr_Model->getString())ptr_Model->buildtree(str);
      ptr_Model->integral(left,right);
  }
 
-void ViewModel::Exec_paint_command(const std::string &str, const double &left, const double &right)
+bool ViewModel::CalcCoordinate(const std::string &str, const double &left, const double &right)
 {
     if(ptr_Model->buildtree(str))
     {
         ptr_Model->cal(left,right);
-        this -> Fire_OnCommandComplete("PaintCommand",true);
-        return;
+        return true;
     }
     else
     {
-        this -> Fire_OnCommandComplete("PaintCommand",false);
-        return;
+        return false;
     }
 }
 

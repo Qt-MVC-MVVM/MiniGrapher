@@ -17,9 +17,9 @@ public:
     std::shared_ptr<ICommandBase> getPaintCmd();
     std::shared_ptr<ICommandBase> getDifferentialCmd();
     std::shared_ptr<ICommandBase> getIntegralCmd();
-    void Exec_differential_command(const std::string &str,const double &x);
-    void Exec_integral_command(const std::string &str,const double &left,const double &right);
-    void Exec_paint_command(const std::string &str,const double &left,const double &right);
+    void CalcDifferential(const std::string &str,const double &x);
+    void CalcIntegral(const std::string &str,const double &left,const double &right);
+    bool CalcCoordinate(const std::string &str,const double &left,const double &right);
     std::shared_ptr<QVector<double>> getX();
     std::shared_ptr<QVector<double>> getY();
     std::shared_ptr<double> getIntegral();
