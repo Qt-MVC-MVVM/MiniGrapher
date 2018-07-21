@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Mini Grapher</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QPushButton" name="StartButton">
    <property name="geometry">
     <rect>
@@ -21,6 +24,13 @@
      <width>91</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	font: 11pt &quot;Algerian&quot;;
+	background-image: rgba(255,255,255,255);
+}
+</string>
    </property>
    <property name="text">
     <string>Start</string>
@@ -34,6 +44,13 @@
      <width>91</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	font: 11pt &quot;Algerian&quot;;
+	background-image: rgba(255,255,255,255);
+}
+</string>
    </property>
    <property name="text">
     <string>Quit</string>
@@ -50,9 +67,19 @@
    </property>
    <property name="font">
     <font>
-     <family>Times New Roman</family>
-     <pointsize>36</pointsize>
+     <family>Algerian</family>
+     <pointsize>30</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+	font: 30pt &quot;Algerian&quot;;
+	background-image: rgba(255,255,255,255);
+}
+</string>
    </property>
    <property name="text">
     <string>Mini  Grapher</string>

@@ -28,42 +28,42 @@ SOURCES += \
         App/main.cpp \
         View/mainwindow.cpp \
     	View/initial.cpp \
-    View/sinks/mainwindowprosink.cpp \
-    View/sinks/mainwindowsetsink.cpp \
-    App/app.cpp \
-    App/commands/startcommand.cpp \
-    ViewModel/viewmodel.cpp \
-    Model/model.cpp \
-    ViewModel/sinks/viewmodelsink.cpp \
-#    ViewModel/commands/submitcommand.cpp \
-    View/brushtool.cpp \
-    View/pentool.cpp \
-    Lib/qcustomplot.cpp \
-    Algorithm/lexer.cpp \
-    Algorithm/prefixtree.cpp \
-    ViewModel/commands/calculuscommand.cpp \
-    ViewModel/commands/PaintCommand.cpp
+        View/sinks/mainwindowprosink.cpp \
+        View/sinks/mainwindowsetsink.cpp \
+        App/app.cpp \
+        App/commands/startcommand.cpp \
+        ViewModel/viewmodel.cpp \
+        Model/model.cpp \
+        ViewModel/sinks/viewmodelsink.cpp \
+        View/brushtool.cpp \
+        View/pentool.cpp \
+        Lib/qcustomplot.cpp \
+        Algorithm/lexer.cpp \
+        Algorithm/prefixtree.cpp \
+        ViewModel/commands/calculuscommand.cpp \
+        ViewModel/commands/PaintCommand.cpp
 
 HEADERS += \
         View/mainwindow.h \
     	View/initial.h \
-    View/sinks/mainwindowprosink.h \
-    View/sinks/mainwindowsetsink.h \
-    Common/etlbase.h \
-    App/app.h \
-    App/commands/startcommand.h \
-    ViewModel/viewmodel.h \
-    Model/model.h \
-    ViewModel/sinks/viewmodelsink.h \
-#    ViewModel/commands/submitcommand.h \
-    View/brushtool.h \
-    View/pentool.h \
-    Lib/qcustomplot.h \
-    Algorithm/lexer.h \
-    Algorithm/prefixtree.h \
-    ViewModel/commands/calculuscommand.h \
-    ViewModel/commands/PaintCommand.h
+        View/sinks/mainwindowprosink.h \
+        View/sinks/mainwindowsetsink.h \
+        Common/etlbase.h \
+        App/app.h \
+        App/commands/startcommand.h \
+        ViewModel/viewmodel.h \
+        Model/model.h \
+        ViewModel/sinks/viewmodelsink.h \
+        View/brushtool.h \
+        View/pentool.h \
+        Lib/qcustomplot.h \
+        Algorithm/lexer.h \
+        Algorithm/prefixtree.h \
+        ViewModel/commands/calculuscommand.h \
+        ViewModel/commands/PaintCommand.h
 
 FORMS += \
         View/mainwindow.ui \
     	View/initial.ui
+
+

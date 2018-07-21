@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->CustomPlot->axisRect()->setupFullAxesBox();
 
     ui->CustomPlot->plotLayout()->insertRow(0);
-    QCPTextElement *title = new QCPTextElement(ui->CustomPlot, "Function Graphs", QFont("sans", 10, QFont::Bold));
+    QCPTextElement *title = new QCPTextElement(ui->CustomPlot, "Function Graphs", QFont("Calibri", 16, QFont::Bold));
     ui->CustomPlot->plotLayout()->addElement(0, 0, title);
 
     ui->CustomPlot->xAxis->setLabel("x Axis");
