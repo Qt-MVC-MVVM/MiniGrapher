@@ -26,8 +26,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
   ui->CustomPlot->xAxis->setLabel("x Axis");
   ui->CustomPlot->yAxis->setLabel("y Axis");
-  ui->CustomPlot->legend->setVisible(true);
 
+  ui->CustomPlot->legend->setVisible(false);
   QFont legendFont = font();
   legendFont.setPointSize(10);
   ui->CustomPlot->legend->setFont(legendFont);
@@ -84,6 +84,7 @@ void MainWindow::updateGraphSettings()
 
     ui->m_pen->setText(PenTool::name(m_graph->pen()));
     ui->m_brush->setText(BrushTool::name(m_graph->brush()));
+
     m_graph->setPen(m_penTool->pen());
     m_graph->setBrush(m_brushTool->brush());
     m_graph->setName(ui->m_graphName->text());
@@ -223,6 +224,10 @@ void MainWindow::addRandomGraph()
   graphPen.setColor(QColor(rand()%245+10, rand()%245+10, rand()%245+10));
   graphPen.setWidthF(rand()/(double)RAND_MAX*2+1);
   ui->CustomPlot->graph()->setPen(graphPen);
+
+  if (ui->CustomPlot->graphCount() > 0)
+        ui->CustomPlot->legend->setVisible(true);
+
   ui->CustomPlot->replot();
 }
 
@@ -243,6 +248,10 @@ void MainWindow::plotGraph()
 
     ui->CustomPlot->graph()->setPen(QPen(Qt::blue)); // line color blue for first graph
     ui->CustomPlot->graph()->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
+
+    if (ui->CustomPlot->graphCount() > 0)
+          ui->CustomPlot->legend->setVisible(true);
+
     ui->CustomPlot->replot();
 }
 
@@ -279,6 +288,9 @@ void MainWindow::removeSelectedGraph()
 
     ui->CustomPlot->removeGraph(ui->CustomPlot->selectedGraphs().first());
 
+    if (ui->CustomPlot->graphCount() <= 0)
+          ui->CustomPlot->legend->setVisible(false);
+
     ui->CustomPlot->replot();
   }
 }
@@ -292,6 +304,10 @@ void MainWindow::removeAllGraphs()
   m_graph = 0;
 
   ui->CustomPlot->clearGraphs();
+
+  if (ui->CustomPlot->graphCount() <= 0)
+        ui->CustomPlot->legend->setVisible(false);
+
   ui->CustomPlot->replot();
 }
 
@@ -403,17 +419,12 @@ void MainWindow::on_AddGraphButton_clicked()
 
 void MainWindow::on_RemoveGraphButton_clicked()
 {
-    if (ui->CustomPlot->selectedGraphs().size() > 0)
-    {
-      ui->CustomPlot->removeGraph(ui->CustomPlot->selectedGraphs().first());
-      ui->CustomPlot->replot();
-    }
+    removeSelectedGraph();
 }
 
 void MainWindow::on_ClearAllButton_clicked()
 {
-    ui->CustomPlot->clearGraphs();
-    ui->CustomPlot->replot();
+    removeAllGraphs();
 }
 
 void MainWindow::set_x(std::shared_ptr<QVector<double> > x)
