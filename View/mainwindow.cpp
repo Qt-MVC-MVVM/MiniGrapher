@@ -6,6 +6,7 @@
 
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
+  m_graph(0),
   ui(new Ui::MainWindow)
 {
   srand(QDateTime::currentDateTime().toTime_t());
@@ -59,11 +60,35 @@ MainWindow::MainWindow(QWidget *parent) :
   QFont font("Microsoft YaHei", 14, 65);
   ui->Differential->setFont(font);
   ui->Integral->setFont(font);
+
+  ui->m_graphName->placeholderText();
+  ui->m_graphName->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
+  m_penTool = new PenTool("Fuction pen", this);
+  m_brushTool = new BrushTool("Function brush", this);
+  connect(ui->m_graphName, &QLineEdit::textChanged, this, &MainWindow::updateGraphSettings);
+  connect(ui->m_pen, &QPushButton::clicked, m_penTool, &PenTool::show);
+  connect(m_penTool, &PenTool::changed, this, &MainWindow::updateGraphSettings);
+  connect(ui->m_brush, &QPushButton::clicked, m_brushTool, &BrushTool::show);
+  connect(m_brushTool, &BrushTool::changed, this, &MainWindow::updateGraphSettings);
 }
 
 MainWindow::~MainWindow()
 {
   delete ui;
+}
+
+void MainWindow::updateGraphSettings()
+{
+    if (!m_graph)
+        return;
+
+    ui->m_pen->setText(PenTool::name(m_graph->pen()));
+    ui->m_brush->setText(BrushTool::name(m_graph->brush()));
+    m_graph->setPen(m_penTool->pen());
+    m_graph->setBrush(m_brushTool->brush());
+    m_graph->setName(ui->m_graphName->text());
+
+    ui->CustomPlot->replot();
 }
 
 void MainWindow::titleDoubleClick(QMouseEvent* event)
@@ -73,7 +98,7 @@ void MainWindow::titleDoubleClick(QMouseEvent* event)
   {
     // Set the plot title by double clicking on it
     bool ok;
-    QString newTitle = QInputDialog::getText(this, "Function Graphs", "New plot title:", QLineEdit::Normal, title->text(), &ok);
+    QString newTitle = QInputDialog::getText(this, "Graphs", "New plot title:", QLineEdit::Normal, title->text(), &ok);
     if (ok)
     {
       title->setText(newTitle);
@@ -88,7 +113,7 @@ void MainWindow::axisLabelDoubleClick(QCPAxis *axis, QCPAxis::SelectablePart par
   if (part == QCPAxis::spAxisLabel) // only react when the actual axis label is clicked, not tick label or axis backbone
   {
     bool ok;
-    QString newLabel = QInputDialog::getText(this, "Function Graphs", "New axis label:", QLineEdit::Normal, axis->label(), &ok);
+    QString newLabel = QInputDialog::getText(this, "Graphs", "New axis label:", QLineEdit::Normal, axis->label(), &ok);
     if (ok)
     {
       axis->setLabel(newLabel);
@@ -105,7 +130,7 @@ void MainWindow::legendDoubleClick(QCPLegend *legend, QCPAbstractLegendItem *ite
   {
     QCPPlottableLegendItem *plItem = qobject_cast<QCPPlottableLegendItem*>(item);
     bool ok;
-    QString newName = QInputDialog::getText(this, "Function Graphs", "New graph name:", QLineEdit::Normal, plItem->plottable()->name(), &ok);
+    QString newName = QInputDialog::getText(this, "Graphs", "New graph name:", QLineEdit::Normal, plItem->plottable()->name(), &ok);
     if (ok)
     {
       plItem->plottable()->setName(newName);
@@ -245,13 +270,27 @@ void MainWindow::removeSelectedGraph()
 {
   if (ui->CustomPlot->selectedGraphs().size() > 0)
   {
+
+    ui->m_pen->setText(PenTool::name(QPen(Qt::blue)));
+    ui->m_brush->setText(BrushTool::name(QBrush(QColor(0, 0, 255, 20))));
+
+    ui->m_graphName->setText("<click a graph>");
+    m_graph = 0;
+
     ui->CustomPlot->removeGraph(ui->CustomPlot->selectedGraphs().first());
+
     ui->CustomPlot->replot();
   }
 }
 
 void MainWindow::removeAllGraphs()
 {
+  ui->m_pen->setText(PenTool::name(QPen(Qt::blue)));
+  ui->m_brush->setText(BrushTool::name(QBrush(QColor(0, 0, 255, 20))));
+
+  ui->m_graphName->setText("<click a graph>");
+  m_graph = 0;
+
   ui->CustomPlot->clearGraphs();
   ui->CustomPlot->replot();
 }
@@ -296,6 +335,20 @@ void MainWindow::moveLegend()
 
 void MainWindow::graphClicked(QCPAbstractPlottable *plottable, int dataIndex)
 {
+  m_graph = static_cast<QCPGraph *>(plottable);
+
+  ui->m_graphName->blockSignals(true);
+  ui->m_graphName->setText(m_graph->name());
+  ui->m_graphName->blockSignals(false);
+
+
+  m_penTool->setPen(m_graph->pen());
+  ui->m_pen->setText(PenTool::name(m_graph->pen()));
+
+
+  m_brushTool->setBrush(m_graph->brush());
+  ui->m_brush->setText(BrushTool::name(m_graph->brush()));
+
   double dataValue = plottable->interface1D()->dataMainValue(dataIndex);
   QString message = QString("Clicked on graph '%1' at data point #%2 with value %3.").arg(plottable->name()).arg(dataIndex).arg(dataValue);
   ui->statusBar->showMessage(message, 2500);
