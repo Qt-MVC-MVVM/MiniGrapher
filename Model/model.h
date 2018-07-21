@@ -10,7 +10,7 @@
 
 #define PointNumber 1000
 
-class Model: public Proxy_PropertyNotification<Model>, public Proxy_CommandNotification<Model>
+class Model: public Proxy_PropertyNotification<Model>
 {
 public:
     Model();
