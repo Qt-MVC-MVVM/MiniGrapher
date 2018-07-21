@@ -229,15 +229,13 @@ void MainWindow::addRandomGraph()
     if (ui->CustomPlot->graphCount() > 0)
                 ui->CustomPlot->legend->setVisible(true);
 
-    ui->Function->clear();
-
     ui->CustomPlot->replot();
 }
 
 void MainWindow::plotGraph()
 {
         ui->CustomPlot->addGraph();
-        ui->CustomPlot->graph()->setName(QString("New graph %1").arg(ui->CustomPlot->graphCount()-1));
+        ui->CustomPlot->graph()->setName(ui->Function->text());
         ui->CustomPlot->xAxis2->setVisible(true);
         ui->CustomPlot->xAxis2->setTickLabels(false);
         ui->CustomPlot->yAxis2->setVisible(true);
@@ -249,9 +247,8 @@ void MainWindow::plotGraph()
         // let the ranges scale themselves so graph 0 fits perfectly in the visible area:
         ui->CustomPlot->graph()->rescaleAxes();
 
-        ui->CustomPlot->graph()->setPen(QPen(Qt::blue)); // line color blue for first graph
-        ui->CustomPlot->graph()->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
-
+        ui->CustomPlot->graph()->setPen(QPen(QColor(0, 94, 161, 255)));
+        ui->CustomPlot->graph()->setBrush(QBrush(QColor(156, 212, 255, 40)));
         if (ui->CustomPlot->graphCount() > 0)
                     ui->CustomPlot->legend->setVisible(true);
 
@@ -299,8 +296,8 @@ void MainWindow::removeSelectedGraph()
     if (ui->CustomPlot->selectedGraphs().size() > 0)
     {
 
-        ui->m_pen->setText(PenTool::name(QPen(Qt::blue)));
-        ui->m_brush->setText(BrushTool::name(QBrush(QColor(0, 0, 255, 20))));
+        ui->CustomPlot->graph()->setPen(QPen(QColor(0, 94, 161, 255)));
+        ui->CustomPlot->graph()->setBrush(QBrush(QColor(156, 212, 255, 40)));
         m_graph = 0;
 
         ui->CustomPlot->removeGraph(ui->CustomPlot->selectedGraphs().first());
@@ -315,8 +312,8 @@ void MainWindow::removeSelectedGraph()
 
 void MainWindow::removeAllGraphs()
 {
-    ui->m_pen->setText(PenTool::name(QPen(Qt::blue)));
-    ui->m_brush->setText(BrushTool::name(QBrush(QColor(0, 0, 255, 20))));
+    ui->CustomPlot->graph()->setPen(QPen(QColor(0, 94, 161, 255)));
+    ui->CustomPlot->graph()->setBrush(QBrush(QColor(156, 212, 255, 40)));
     m_graph = 0;
 
     ui->CustomPlot->clearGraphs();
@@ -422,7 +419,7 @@ void MainWindow::on_AddGraphButton_clicked()
         std::string str = qstr.toStdString();
 
         double lower = qlower.isEmpty()? -10: qlower.toDouble(&ok);
-        double upper = qupper.isEmpty()?    10: qupper.toDouble(&ok);
+        double upper = qupper.isEmpty()?  10: qupper.toDouble(&ok);
 
         PaintCommand->SetParameter(str, lower, upper);
         PaintCommand->Exec();
