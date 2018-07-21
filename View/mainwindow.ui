@@ -20,7 +20,7 @@
       <x>650</x>
       <y>10</y>
       <width>151</width>
-      <height>171</height>
+      <height>111</height>
      </rect>
     </property>
     <property name="title">
@@ -109,60 +109,34 @@
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>190</y>
+      <y>140</y>
       <width>151</width>
-      <height>221</height>
+      <height>121</height>
      </rect>
     </property>
     <property name="title">
-     <string>Calculate</string>
+     <string>Differetial</string>
     </property>
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>20</y>
+       <y>10</y>
        <width>131</width>
        <height>41</height>
       </rect>
      </property>
      <property name="text">
-      <string>Differential result:</string>
+      <string>Differential result</string>
      </property>
     </widget>
     <widget class="QLabel" name="Differential">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>70</y>
+       <y>50</y>
        <width>131</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>120</y>
-       <width>131</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Integral result:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Integral">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>160</y>
-       <width>131</width>
-       <height>41</height>
+       <height>61</height>
       </rect>
      </property>
      <property name="text">
@@ -214,6 +188,45 @@
      <string>Input upper bound here</string>
     </property>
    </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>280</y>
+      <width>151</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Integral</string>
+    </property>
+    <widget class="QLabel" name="Integral">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>131</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>131</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Integral result</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -221,7 +234,7 @@
      <x>0</x>
      <y>0</y>
      <width>810</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>

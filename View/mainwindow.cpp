@@ -301,7 +301,7 @@ void MainWindow::graphClicked(QCPAbstractPlottable *plottable, int dataIndex)
 
 void MainWindow::set_paint_command(std::shared_ptr<ICommandBase> ptrCommand)
 {
-  PaintCommand = ptrCommand;
+    PaintCommand = ptrCommand;
 }
 
 void MainWindow::set_differential_command(std::shared_ptr<ICommandBase> ptrCommand)
