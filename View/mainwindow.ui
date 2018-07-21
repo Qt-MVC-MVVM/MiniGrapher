@@ -26,6 +26,29 @@
     <property name="title">
      <string>Selected</string>
     </property>
+    <widget class="QComboBox" name="comboBox">
+     <property name="geometry">
+      <rect>
+       <x>58</x>
+       <y>20</y>
+       <width>81</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>31</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Pen</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QCustomPlot" name="CustomPlot" native="true">
     <property name="geometry">
@@ -134,7 +157,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>50</y>
+       <y>40</y>
        <width>131</width>
        <height>61</height>
       </rect>
@@ -204,7 +227,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>50</y>
+       <y>40</y>
        <width>131</width>
        <height>61</height>
       </rect>

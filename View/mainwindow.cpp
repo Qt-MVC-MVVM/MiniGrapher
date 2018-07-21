@@ -32,8 +32,6 @@ MainWindow::MainWindow(QWidget *parent) :
   ui->CustomPlot->legend->setFont(legendFont);
   ui->CustomPlot->legend->setSelectedFont(legendFont);
   ui->CustomPlot->legend->setSelectableParts(QCPLegend::spItems); // legend box shall not be selectable, only legend items
-
-  //addRandomGraph();
   ui->CustomPlot->rescaleAxes();
 
   // connect slot that ties some axis selections together (especially opposite axes):
@@ -57,6 +55,10 @@ MainWindow::MainWindow(QWidget *parent) :
   // setup policy and connect slot for context menu popup:
   ui->CustomPlot->setContextMenuPolicy(Qt::CustomContextMenu);
   connect(ui->CustomPlot, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequest(QPoint)));
+
+  QFont font("Microsoft YaHei", 14, 65);
+  ui->Differential->setFont(font);
+  ui->Integral->setFont(font);
 }
 
 MainWindow::~MainWindow()
