@@ -16,60 +16,60 @@ class MainWindow;
 
 class MainWindow : public QMainWindow
 {
-  Q_OBJECT
+    Q_OBJECT
 
 public:
-  explicit MainWindow(QWidget *parent = 0);
-  ~MainWindow();
-  void set_paint_command(std::shared_ptr<ICommandBase> ptrCommand);
-  void set_differential_command(std::shared_ptr<ICommandBase> ptrCommand);
-  void set_integral_command(std::shared_ptr<ICommandBase> ptrCommand);
-  std::shared_ptr<IPropertyNotification> getPtrWindowProSink(void);
-  std::shared_ptr<ICommandNotification> getPtrWindowSetSink(void);
+    explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
+    void set_paint_command(std::shared_ptr<ICommandBase> ptrCommand);
+    void set_differential_command(std::shared_ptr<ICommandBase> ptrCommand);
+    void set_integral_command(std::shared_ptr<ICommandBase> ptrCommand);
+    std::shared_ptr<IPropertyNotification> getPtrWindowProSink(void);
+    std::shared_ptr<ICommandNotification> getPtrWindowSetSink(void);
 
-  void set_x(std::shared_ptr<QVector<double>> x);
-  void set_y(std::shared_ptr<QVector<double>> y);
-  void plotGraph();
-  void setIntegral(std::shared_ptr<double> IntegralAns);
-  void setDifferential(std::shared_ptr<double> DifferentialAns);
-  void showDifferential();
-  void showIntegral();
-  void showPaintFailed();
-  void showPaintSucceed();
+    void set_x(std::shared_ptr<QVector<double>> x);
+    void set_y(std::shared_ptr<QVector<double>> y);
+    void plotGraph();
+    void setIntegral(std::shared_ptr<double> IntegralAns);
+    void setDifferential(std::shared_ptr<double> DifferentialAns);
+    void showDifferential();
+    void showIntegral();
+    void showPaintFailed();
+    void showPaintSucceed();
 
 private slots:
-  void titleDoubleClick(QMouseEvent *event);
-  void axisLabelDoubleClick(QCPAxis* axis, QCPAxis::SelectablePart part);
-  void legendDoubleClick(QCPLegend* legend, QCPAbstractLegendItem* item);
-  void selectionChanged();
-  void mousePress();
-  void mouseWheel();
-  void addRandomGraph();
-  void removeSelectedGraph();
-  void removeAllGraphs();
-  void contextMenuRequest(QPoint pos);
-  void moveLegend();
-  void graphClicked(QCPAbstractPlottable *plottable, int dataIndex);
-  void on_AddGraphButton_clicked();
-  void on_RemoveGraphButton_clicked();
-  void on_ClearAllButton_clicked();
-  void updateGraphSettings();
+    void titleDoubleClick(QMouseEvent *event);
+    void axisLabelDoubleClick(QCPAxis* axis, QCPAxis::SelectablePart part);
+    void legendDoubleClick(QCPLegend* legend, QCPAbstractLegendItem* item);
+    void selectionChanged();
+    void mousePress();
+    void mouseWheel();
+    void addRandomGraph();
+    void removeSelectedGraph();
+    void removeAllGraphs();
+    void contextMenuRequest(QPoint pos);
+    void moveLegend();
+    void graphClicked(QCPAbstractPlottable *plottable, int dataIndex);
+    void on_AddGraphButton_clicked();
+    void on_RemoveGraphButton_clicked();
+    void on_ClearAllButton_clicked();
+    void updateGraphSettings();
 
 private:
-  Ui::MainWindow *ui;
-  QLabel *msgLabel;
-  std::shared_ptr<mainWindowProSink> _ptrWindowProSink;
-  std::shared_ptr<mainWindowSetSink> _ptrWindowSetSink;
+    Ui::MainWindow *ui;
+    QLabel *msgLabel;
+    std::shared_ptr<mainWindowProSink> _ptrWindowProSink;
+    std::shared_ptr<mainWindowSetSink> _ptrWindowSetSink;
 
-  std::shared_ptr<ICommandBase> PaintCommand;
-  std::shared_ptr<ICommandBase> DifferentialCommand;
-  std::shared_ptr<ICommandBase> IntegralCommand;
-  std::shared_ptr<QVector<double>> x,y;
-  std::shared_ptr<double> IntegralAns,DifferentialAns;
+    std::shared_ptr<ICommandBase> PaintCommand;
+    std::shared_ptr<ICommandBase> DifferentialCommand;
+    std::shared_ptr<ICommandBase> IntegralCommand;
+    std::shared_ptr<QVector<double>> x,y;
+    std::shared_ptr<double> IntegralAns,DifferentialAns;
 
-  BrushTool *m_brushTool;
-  PenTool *m_penTool;
-  QCPGraph *m_graph;
+    BrushTool *m_brushTool;
+    PenTool *m_penTool;
+    QCPGraph *m_graph;
 };
 
 #endif // MAINWINDOW_H
