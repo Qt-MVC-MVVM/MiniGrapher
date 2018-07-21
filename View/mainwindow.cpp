@@ -3,7 +3,6 @@
 
 #include <QString>
 #include <string>
-#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
@@ -223,29 +222,21 @@ void MainWindow::plotGraph()
 void MainWindow::setIntegral(std::shared_ptr<double> IntegralAns)
 {
     this->IntegralAns = IntegralAns;
-    qDebug() << "set Integral: " << *IntegralAns;
 }
 
 void MainWindow::setDifferential(std::shared_ptr<double> DifferentialAns)
 {
     this->DifferentialAns = DifferentialAns;
-    this->update();
-    qDebug() << "set Differential: " << *DifferentialAns;
 }
 
 void MainWindow::showDifferential()
 {
     ui->Differential->setText(QString::number(*DifferentialAns));
-    this->update();
-    qDebug() << "show Differential: " << *DifferentialAns;
-    qDebug() << "labelDiff: " << ui->Differential->text();
 }
 
 void MainWindow::showIntegral()
 {
     ui->Integral->setText(QString::number(*IntegralAns));
-    qDebug() << "show Integral: " << *IntegralAns;
-    qDebug() << "labelInt: " << ui->Integral->text();
 }
 
 void MainWindow::removeSelectedGraph()
