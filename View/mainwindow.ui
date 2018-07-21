@@ -235,6 +235,9 @@
        <height>51</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 85 16pt &quot;Calibri&quot;;</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -316,10 +319,13 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>40</y>
+       <y>50</y>
        <width>141</width>
        <height>61</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 85 16pt &quot;Calibri&quot;;</string>
      </property>
      <property name="text">
       <string/>

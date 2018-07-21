@@ -58,10 +58,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->CustomPlot->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(ui->CustomPlot, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenuRequest(QPoint)));
 
-    QFont font("Microsoft YaHei", 14, 65);
-    ui->Differential->setFont(font);
-    ui->Integral->setFont(font);
-
     ui->m_graphName->placeholderText();
     ui->m_graphName->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
     m_penTool = new PenTool("Fuction pen", this);
