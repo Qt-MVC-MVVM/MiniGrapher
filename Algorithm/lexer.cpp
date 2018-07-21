@@ -30,8 +30,18 @@ enum type lexer::test_char()
 	while(now<S.length())
 	{
 		if (S[now] == ' ' || S[now] == '\n')now++;
-		if (S[now] <= '9'&&S[now] >= '0')return NUMBER;
-		else
+        if (S[now] <= '9'&&S[now] >= '0')
+        {
+            bool point = false;
+            for (int i=now;i<S.length();i++)
+            {
+                if(S[i]=='.' && point == true) return WRONGINPUT;
+                else if(S[i]=='.')point = true;
+                if(S[i]>'9'&&S[i]<'0'&&S[i]!='.')break;
+            }
+            return NUMBER;
+        }
+        else
 		{
 			if (S[now] == 'x')return ALGEBRA;
 			for (int i = 0;i < FuncNumber;i++)
@@ -61,7 +71,7 @@ double lexer::get_double()
 			ans = ans * 10 + S[now] - '0';
 			if (point)pos++;
 		}
-		else if (S[now] == '.')point = true;
+        else if (S[now] == '.'&& point==false )point = true;
 		else break;
 		now++;
 	}

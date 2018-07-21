@@ -49,8 +49,17 @@ std::shared_ptr<ICommandBase> ViewModel::getPaintCmd()
 
 void ViewModel::Exec_paint_command(const std::string &str, const double &left, const double &right)
 {
-    if(str!=ptr_Model->getString())ptr_Model->buildtree(str);
-    ptr_Model->cal(left,right);
+    if(ptr_Model->buildtree(str))
+    {
+        ptr_Model->cal(left,right);
+        this -> Fire_OnCommandComplete("PaintCommand",true);
+        return;
+    }
+    else
+    {
+        this -> Fire_OnCommandComplete("PaintCommand",false);
+        return;
+    }
 }
 
 std::shared_ptr<QVector<double> > ViewModel::getX()

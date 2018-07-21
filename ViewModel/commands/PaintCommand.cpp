@@ -16,5 +16,4 @@ void PaintCommand::SetParameter(const string &param,const double &param1,const d
 void PaintCommand::Exec()
 {
     ptr_ViewModel -> Exec_paint_command(str,LowerBound,UpperBound);
-    ptr_ViewModel -> Fire_OnCommandComplete("PaintCommand",true);
 }
