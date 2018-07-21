@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
   ui->setupUi(this);
   _ptrWindowProSink= std::make_shared<mainWindowProSink>(mainWindowProSink(this));
   _ptrWindowSetSink=std::make_shared<mainWindowSetSink>(mainWindowSetSink(this));
+  msgLabel = new QLabel;
 
   ui->CustomPlot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectAxes |
                                   QCP::iSelectLegend | QCP::iSelectPlottables);
@@ -277,6 +278,20 @@ void MainWindow::showDifferential()
 void MainWindow::showIntegral()
 {
     ui->Integral->setText(QString::number(*IntegralAns));
+}
+
+void MainWindow::showPaintFailed()
+{
+    QString failure = "Wrong input.";
+    msgLabel->setText(failure);
+    ui->statusBar->addWidget(msgLabel);
+}
+
+void MainWindow::showPaintSucceed()
+{
+    QString success = "Plot graph succeeded.";
+    msgLabel->setText(success);
+    ui->statusBar->addWidget(msgLabel);
 }
 
 void MainWindow::removeSelectedGraph()

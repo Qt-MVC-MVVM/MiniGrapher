@@ -34,6 +34,8 @@ public:
   void setDifferential(std::shared_ptr<double> DifferentialAns);
   void showDifferential();
   void showIntegral();
+  void showPaintFailed();
+  void showPaintSucceed();
 
 private slots:
   void titleDoubleClick(QMouseEvent *event);
@@ -55,7 +57,7 @@ private slots:
 
 private:
   Ui::MainWindow *ui;
-
+  QLabel *msgLabel;
   std::shared_ptr<mainWindowProSink> _ptrWindowProSink;
   std::shared_ptr<mainWindowSetSink> _ptrWindowSetSink;
 
