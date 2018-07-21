@@ -97,8 +97,9 @@ string lexer::getString()
 
 bool lexer::strtotree()
 {
-    drop( root );
+    drop( root );    
 	root = nullptr;
+	if(S.length()==0)return false;
 	enum type last = NONE;
 	while (now<S.length())
 	{
