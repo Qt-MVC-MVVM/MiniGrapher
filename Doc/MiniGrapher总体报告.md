@@ -14,19 +14,24 @@
 3. 实现Model层中算法层的词法解析功能。
 4. 实现View层中函数图像放大缩小等基本交互功能。
 5. 利用ViewModel层的通讯，实现给定函数解析式，通过Model层的词法解析在View层中绘制出指定函数的功能。
-6. 实现给定值的微分、给定区间的积分等计算功能。
+6. 实现给定横坐标的微分、给定区间的积分等计算功能。
 
 #### 分工
 
-- [余亚鑫](https://github.com/ySilencex)
-  - Model层以及词法解析算法的实现
-  - 给定值的微分、给定区间的积分等计算功能的实现
-- [萧芷晴](https://github.com/crownX)
-  - UI设计
-  - View层函数的绘制以及基本交互功能的实现
-- [吴宁超](https://github.com/CcCody)
-  - MVVM框架的搭建以及Appveyor持续集成环境的搭建
-  - 整合生成可以发布执行的应用程序
+- 组长
+  - [吴宁超](https://github.com/CcCody)
+    - 进行分工协调，MVVM框架的搭建以及Appveyor持续集成环境的搭建
+    - 负责View层中给定横纵坐标数据的函数图像的绘制和显示、微分积分结果的显示
+    - 负责App层的组装，以生成可以发布执行的应用程序
+- 组员
+  - [余亚鑫](https://github.com/ySilencex)
+    - Model层以及Algorithm层词法解析算法的实现
+    - Model层中给定横坐标的微分、给定区间的积分等底层数据计算的实现
+    - ViewModel层相关命令与接口实现
+  - [萧芷晴](https://github.com/crownX)
+    - 应用程序UI设计、美化与实现
+    - View层函数图像操作以及缩放、拖动、更名等交互功能的实现
+    - View层自定义画笔颜色、笔刷颜色的实现
 
 ### 每轮迭代效果说明
 
@@ -68,7 +73,80 @@
   - [x] 支持多项式函数，如`x^3+x+1`
   - [x] 支持上述函数的复合形式，如`sin(x^2+1)*ln(x^3*cos(2x))/(x^2+1)`
 
+##### 第五轮迭代
+
+- [x] 优化UI界面
+- [x] 实现给定横坐标的微分计算功能
+- [x] 实现给定区间的积分计算功能
+- [x] 实现选中函数图像的画笔颜色自定义
+- [x] 实现选中函数图像的阴影颜色自定义
+- [x] 增加输入解析式错误提示
+
 ###最终运行效果图
 
 
+
+### 项目目录
+
+```
+.
+├── Algorithm
+│   ├── lexer.cpp
+│   ├── lexer.h
+│   ├── prefixtree.cpp
+│   └── prefixtree.h
+├── App
+│   ├── app.cpp
+│   ├── app.h
+│   ├── commands
+│   │   ├── startcommand.cpp
+│   │   └── startcommand.h
+│   └── main.cpp
+├── Common
+│   └── etlbase.h
+├── Doc
+│   └── MiniGrapher总体报告.md
+├── Lib
+│   ├── qcustomplot.cpp
+│   └── qcustomplot.h
+├── MiniGrapher.pro
+├── Model
+│   ├── lexer.cpp
+│   ├── lexer.h
+│   ├── model.cpp
+│   ├── model.h
+│   ├── prefixtree.cpp
+│   └── prefixtree.h
+├── README.md
+├── Src
+│   └── libstdc++-6.dll
+├── View
+│   ├── brushtool.cpp
+│   ├── brushtool.h
+│   ├── initial.cpp
+│   ├── initial.h
+│   ├── initial.ui
+│   ├── mainwindow.cpp
+│   ├── mainwindow.h
+│   ├── mainwindow.ui
+│   ├── pentool.cpp
+│   ├── pentool.h
+│   └── sinks
+│       ├── mainwindowprosink.cpp
+│       ├── mainwindowprosink.h
+│       ├── mainwindowsetsink.cpp
+│       └── mainwindowsetsink.h
+├── ViewModel
+│   ├── commands
+│   │   ├── PaintCommand.cpp
+│   │   ├── PaintCommand.h
+│   │   ├── calculuscommand.cpp
+│   │   └── calculuscommand.h
+│   ├── sinks
+│   │   ├── viewmodelsink.cpp
+│   │   └── viewmodelsink.h
+│   ├── viewmodel.cpp
+│   └── viewmodel.h
+├── appveyor.yml
+```
 
