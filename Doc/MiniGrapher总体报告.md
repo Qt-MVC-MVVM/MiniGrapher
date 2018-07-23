@@ -86,27 +86,27 @@
 
 #### 软件主界面
 
-![MainWindow](https://www.github.com/CcCody/MiniGrapher/blob/master/Images/MainWindow.png)
+![MainWindow](https://github.com/CcCody/MiniGrapher/blob/master/Images/MainWindow.png)
 
 #### 函数绘图
 
-![sin(2*x):(x+1)](https://www.github.com/CcCody/MiniGrapher/blob/master/Images/sin(2*x):(x+1).png)
+![sin(2*x):(x+1)](https://github.com/CcCody/MiniGrapher/blob/master/Images/sin(2*x):(x+1).png)
 
-![1:200*x](https://www.github.com/CcCody/MiniGrapher/blob/master/Images/1:200*x.png)
+![1:200*x](https://github.com/CcCody/MiniGrapher/blob/master/Images/1:200*x.png)
 
-![PlotGraph](https://www.github.com/CcCody/MiniGrapher/blob/master/Images/PlotGraph.gif)
+![PlotGraph](https://github.com/CcCody/MiniGrapher/blob/master/Images/PlotGraph.gif)
 
 #### 随机生成图像、选中、删除功能
 
-![random_selection_deletion](https://www.github.com/CcCody/MiniGrapher/blob/master/Images/random_selection_deletion.gif)
+![random_selection_deletion](https://github.com/CcCody/MiniGrapher/blob/master/Images/random_selection_deletion.gif)
 
 #### 图像缩放、坐标轴平移缩放、名称更改、画笔/笔刷颜色更改等功能
 
-![interactions](https://www.github.com/CcCody/MiniGrapher/blob/master/Images/interactions.gif)
+![interactions](https://github.com/CcCody/MiniGrapher/blob/master/Images/interactions.gif)
 
 #### 绘图成功/失败提示、单击点纵坐标显示（左下角）
 
-![info](https://www.github.com/CcCody/MiniGrapher/blob/master/Images/info.gif)
+![info](https://github.com/CcCody/MiniGrapher/blob/master/Images/info.gif)
 
 ### 项目目录
 
