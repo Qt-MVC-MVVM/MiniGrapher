@@ -1,6 +1,6 @@
 # MiniGrapher
 
-###项目介绍
+### 项目介绍
 
 - 本项目实现了一款根据函数解析式进行绘图并能进行定点微分值和定区间积分值计算的软件，同时实现了图像缩放、平移、选中删除等多种交互功能。
 - 项目详细总体报告见[Doc/MiniGrapher总体报告](https://github.com/CcCody/MiniGrapher/raw/master/Doc/MiniGrapher总体报告.md)
