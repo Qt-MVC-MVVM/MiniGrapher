@@ -50,17 +50,17 @@
 
 - [x] 优化UI界面
 - [x] 实现部分图像操作功能
-  - [x] 增加随机图像
-  - [x] 选中单个图像
-  - [x] 删除指定图像
-  - [x] 删除所有图像
+  - [x] 增加随机函数曲线
+  - [x] 选中单个函数曲线
+  - [x] 删除指定函数曲线
+  - [x] 删除所有函数曲线
   - [x] 坐标轴可拖动
-  - [x] 更改曲线名称
+  - [x] 更改结果图名称
   - [x] 更改坐标轴名称
-  - [x] 更改图像注记名称
-  - [x] 更改图像注记位置
-  - [x] x轴缩放
-  - [x] y轴缩放
+  - [x] 更改曲线注记名称
+  - [x] 更改曲线注记位置
+  - [x] x轴单向缩放
+  - [x] y轴单向缩放
   - [x] 图像放大缩小
 
 #### 第四轮迭代
@@ -71,20 +71,42 @@
   - [x] 支持对数函数`lg(x)`, `ln(x)`
   - [x] 支持数学函数`abs(x)`, `sqrt(x)`
   - [x] 支持多项式函数，如`x^3+x+1`
-  - [x] 支持上述函数的复合形式，如`sin(x^2+1)*ln(x^3*cos(2x))/(x^2+1)`
+  - [x] 支持上述函数的复合形式，如`sin(x^2+1)*ln(x^3*cos(2*x))/(x^2+1)`
 
 ##### 第五轮迭代
 
 - [x] 优化UI界面
 - [x] 实现给定横坐标的微分计算功能
 - [x] 实现给定区间的积分计算功能
-- [x] 实现选中函数图像的画笔颜色自定义
-- [x] 实现选中函数图像的阴影颜色自定义
-- [x] 增加输入解析式错误提示
+- [x] 实现选中函数图像的画笔颜色自定义功能
+- [x] 实现选中函数图像的阴影颜色自定义功能
+- [x] 增加输入解析式格式正确与否的提示
 
-###最终运行效果图
+### 最终运行效果图
 
+#### 软件主界面
 
+![MainWindow](https://www.github.com/CcCody/MiniGrapher/Images/MainWindow.png)
+
+#### 函数绘图
+
+![sin(2*x):(x+1)](https://www.github.com/CcCody/MiniGrapher/Images/sin(2*x):(x+1).png)
+
+![1:200*x](https://www.github.com/CcCody/MiniGrapher/Images/1:200*x.png)
+
+![PlotGraph](https://www.github.com/CcCody/MiniGrapher/Images/PlotGraph.gif)
+
+#### 随机生成图像、选中、删除功能
+
+![random_selection_deletion](https://www.github.com/CcCody/MiniGrapher/Images/random_selection_deletion.gif)
+
+#### 图像缩放、坐标轴平移缩放、名称更改、画笔/笔刷颜色更改等功能
+
+![interactions](https://www.github.com/CcCody/MiniGrapher/Images/interactions.gif)
+
+#### 绘图成功/失败提示、单击点纵坐标显示（左下角）
+
+![info](https://www.github.com/CcCody/MiniGrapher/Images/info.gif)
 
 ### 项目目录
 
@@ -105,18 +127,24 @@
 ├── Common
 │   └── etlbase.h
 ├── Doc
-│   └── MiniGrapher总体报告.md
+│   ├── MiniGrapher总体报告.md
+│   ├── MiniGrapher需求分析.md
+│   └── Model&ViewModel.md
+├── Images
+│   ├── 1:200*x.png
+│   ├── MainWindow.png
+│   ├── PlotGraph.gif
+│   ├── info.gif
+│   ├── interactions.gif
+│   ├── random_selection_deletion.gif
+│   └── sin(2*x):(x+1).png
 ├── Lib
 │   ├── qcustomplot.cpp
 │   └── qcustomplot.h
 ├── MiniGrapher.pro
 ├── Model
-│   ├── lexer.cpp
-│   ├── lexer.h
 │   ├── model.cpp
-│   ├── model.h
-│   ├── prefixtree.cpp
-│   └── prefixtree.h
+│   └── model.h
 ├── README.md
 ├── Src
 │   └── libstdc++-6.dll
@@ -148,5 +176,8 @@
 │   ├── viewmodel.cpp
 │   └── viewmodel.h
 ├── appveyor.yml
+└── tree.txt
+
+14 directories, 51 files
 ```
 
