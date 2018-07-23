@@ -90,9 +90,9 @@
 
 #### 函数绘图
 
-![sin(2*x):(x+1)](https://github.com/CcCody/MiniGrapher/raw/master/Images/sin(2*x):(x+1).png)
+![sine](https://github.com/CcCody/MiniGrapher/raw/master/Images/sine.png)
 
-![1:200*x](https://github.com/CcCody/MiniGrapher/raw/master/Images/1:200*x.png)
+![linear](https://github.com/CcCody/MiniGrapher/raw/master/Images/linear.png)
 
 ![PlotGraph](https://github.com/CcCody/MiniGrapher/raw/master/Images/PlotGraph.gif)
 
