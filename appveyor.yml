@@ -17,7 +17,7 @@ build_script:
 
     windeployqt MiniGrapher.exe
 
-    copy /y "C:\projects\minigrapher\Src\libstdc++-6.dll" "C:\projects\minigrapher\View\release\libstdc++-6.dll"
+    copy /y "C:\projects\minigrapher\Src\libstdc++-6.dll" "C:\projects\minigrapher\release\libstdc++-6.dll"
 test_script:
 - cmd: >-
     cd Test
@@ -32,7 +32,7 @@ test_script:
 
     windeployqt MiniGrapher.exe
 
-    copy /y "C:\projects\minigrapher\Src\libstdc++-6.dll" "C:\projects\minigrapher\release\libstdc++-6.dll"
+    copy /y "C:\projects\minigrapher\Src\libstdc++-6.dll" "C:\projects\minigrapher\Test\release\libstdc++-6.dll"
 
     MiniGrapher.exe
 artifacts:
