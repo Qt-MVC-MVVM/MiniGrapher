@@ -35,7 +35,7 @@ SOURCES += \
         ../Algorithm/prefixtree.cpp \
         ../ViewModel/commands/calculuscommand.cpp \
         ../ViewModel/commands/PaintCommand.cpp \
-        minigraphertest.cpp
+        MiniGrapher_Test.cpp
 
 HEADERS += \
         ../Common/etlbase.h \
