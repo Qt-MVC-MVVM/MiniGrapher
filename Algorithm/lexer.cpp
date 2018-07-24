@@ -206,7 +206,7 @@ double lexer::calculate( double x )
 double lexer::integral( double a, double b )
 {
 	int n = 1;
-    double delta = 1e-10, error = 0, ans = calculate( a )+calculate( b );
+    double delta = 1e-6, error = 0, ans = calculate( a )+calculate( b );
 	do
 	{
 		double last = ans;
@@ -224,7 +224,7 @@ double lexer::integral( double a, double b )
 double lexer::differential( double x )
 {
     double delta = 1e-10;
-	return (calculate( x+delta )+calculate( x-delta ))/(2*delta);
+	return (calculate( x+delta )-calculate( x-delta ))/(2*delta);
 }
 
 void lexer::drop( pnode node )

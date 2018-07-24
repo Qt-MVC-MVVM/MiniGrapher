@@ -118,7 +118,7 @@ bool tree_node::calculate( double& ans, double x )
 			}
 			case 5:
 			{
-				ans = cos( 1 );
+				ans = cos( l );
 				break;
 			}
 			case 6:
