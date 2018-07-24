@@ -30,11 +30,11 @@ test_script:
 
     cd release
 
-    windeployqt MiniGrapher.exe
+    windeployqt MiniGrapher_Test.exe
 
     copy /y "C:\projects\minigrapher\Src\libstdc++-6.dll" "C:\projects\minigrapher\Test\release\libstdc++-6.dll"
 
-    MiniGrapher.exe
+    MiniGrapher_Test.exe
 artifacts:
 - path: release/
   name: MiniGrapher
