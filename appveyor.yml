@@ -20,7 +20,7 @@ build_script:
     copy /y "C:\projects\minigrapher\Src\libstdc++-6.dll" "C:\projects\minigrapher\release\libstdc++-6.dll"
 test_script:
 - cmd: >-
-    cd Test
+    cd C:\projects\minigrapher\Test
 
     qmake MiniGrapher_Test.pro
 
