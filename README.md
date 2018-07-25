@@ -5,6 +5,7 @@
 - 本项目实现了一款根据函数解析式进行绘图并能进行定点微分值和定区间积分值计算的软件，同时实现了图像缩放、平移、选中删除等多种交互功能。
 - 项目详细总体报告见[Doc/MiniGrapher总体报告](https://github.com/CcCody/MiniGrapher/raw/master/Doc/MiniGrapher总体报告.md)
 - 项目详细需求分析见[Doc/MiniGrapher需求分析](https://github.com/CcCody/MiniGrapher/raw/master/Doc/MiniGrapher需求分析.md)
+- 项目单元测试代码见[Test/MiniGrapher_Test.cpp](https://github.com/CcCody/MiniGrapher/blob/master/Test/MiniGrapher_Test.cpp)
 
 ### 项目概况
 
@@ -40,6 +41,7 @@
 - [x] 函数曲线注记位置更改
 - [x] 选中函数曲线画笔颜色自定义更改
 - [x] 选中函数曲线阴影颜色自定义更改
+- [x] 选中函数曲线类型自定义更改
 
 ### 支持函数
 
@@ -55,6 +57,33 @@
   - `abs(x)`
   - `sqrt(x)`
 - 上述所有函数的复合形式，如`sin(x^2+1)*ln(x^3*cos(2*x))/(x^2+1)`
+
+### 单元测试
+
+#### 测试原理
+
+- 测试利用了Qt的 `QTest` 库，将`ViewModel`、`Model`、`Algorithm`层的数据整合进行测试
+- 测试代码中共有11个测试函数，测试函数覆盖：
+  - 一次函数
+  - 二次函数
+  - 三次函数
+  - 正弦函数
+  - 余弦函数
+  - 正切函数
+  - 常用对数函数
+  - 自然对数函数
+  - 绝对值函数
+  - 开方函数
+  - 复合函数
+- 在每一个测试函数中，分以下三步进行测试：
+  - 测试x，y的关系在误差范围内是否满足函数关系式
+  - 测试函数定积分计算是否在误差范围之内
+  - 测试函数微分计算是否在误差范围之内
+- 误差范围设置为`1e-3`
+
+#### 测试截图
+
+![Test_Result](https://github.com/CcCody/MiniGrapher/raw/master/Images/Test_Result.png)
 
 ### 最终运行效果图
 
