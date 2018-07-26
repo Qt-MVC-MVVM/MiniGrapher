@@ -81,9 +81,13 @@
   - 测试函数微分计算是否在误差范围之内
 - 误差范围设置为`1e-3`
 
-#### 测试截图
+#### 测试结果
+
+- 测试截图如下：
 
 ![Test_Result](https://github.com/CcCody/MiniGrapher/raw/master/Images/Test_Result.png)
+
+- 详细测试信息可以在[Appveyor页面](https://ci.appveyor.com/project/CcCody/minigrapher-unifv)查看，由于项目前期建立的是私有仓库，所以这个页面只包含最近几次的含测试信息的内容。
 
 ### 最终运行效果图
 
@@ -130,17 +134,31 @@
 ├── Common
 │   └── etlbase.h
 ├── Doc
+│   ├── DocImages
+│   │   ├── Veiw001.png
+│   │   ├── View002.png
+│   │   ├── View003.png
+│   │   ├── View004.png
+│   │   ├── View005.png
+│   │   ├── View006.png
+│   │   ├── View007.png
+│   │   ├── View008.png
+│   │   ├── View009.png
+│   │   └── View010.png
 │   ├── MiniGrapher总体报告.md
 │   ├── MiniGrapher需求分析.md
-│   └── Model&ViewModel.md
+│   └── 个人报告-吴宁超.md
+│   └── 个人报告-余亚鑫.md
+│   └── 个人报告-萧芷晴.md
 ├── Images
-│   ├── 1:200*x.png
 │   ├── MainWindow.png
 │   ├── PlotGraph.gif
+│   ├── Test_Result.png
 │   ├── info.gif
 │   ├── interactions.gif
+│   ├── linear.png
 │   ├── random_selection_deletion.gif
-│   └── sin(2*x):(x+1).png
+│   └── sine.png
 ├── Lib
 │   ├── qcustomplot.cpp
 │   └── qcustomplot.h
@@ -151,6 +169,9 @@
 ├── README.md
 ├── Src
 │   └── libstdc++-6.dll
+├── Test
+│   ├── MiniGrapher_Test.cpp
+│   └── MiniGrapher_Test.pro
 ├── View
 │   ├── brushtool.cpp
 │   ├── brushtool.h
@@ -178,10 +199,9 @@
 │   │   └── viewmodelsink.h
 │   ├── viewmodel.cpp
 │   └── viewmodel.h
-├── appveyor.yml
-└── tree.txt
+└── appveyor.yml
 
-14 directories, 51 files
+16 directories, 65 files
 ```
 ### 小组成员
 

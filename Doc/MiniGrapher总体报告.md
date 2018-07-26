@@ -16,13 +16,13 @@
 5. 利用ViewModel层的通讯，实现给定函数解析式，通过Model层的词法解析在View层中绘制出指定函数的功能。
 6. 实现给定横坐标的微分、给定区间的积分等计算功能。
 
-#### 分工
+#### 小组分工
 
 - 组长
   - [吴宁超](https://github.com/CcCody)
     - 进行分工协调，MVVM框架的搭建以及Appveyor持续集成环境的搭建
     - 负责View层中给定横纵坐标数据的函数图像的绘制和显示、微分积分结果的显示
-    - 负责App层的组装，以生成可以发布执行的应用程序
+    - 负责App层的组装、单元测试代码的编写，以生成可以发布执行的应用程序
 - 组员
   - [余亚鑫](https://github.com/ySilencex)
     - Model层以及Algorithm层词法解析算法的实现
@@ -31,7 +31,7 @@
   - [萧芷晴](https://github.com/crownX)
     - 应用程序UI设计、美化与实现
     - View层函数图像操作以及缩放、拖动、更名等交互功能的实现
-    - View层自定义画笔颜色、笔刷颜色的实现
+    - View层自定义画笔颜色、笔刷颜色、曲线类型的实现
 
 ### 每轮迭代效果说明
 
@@ -73,7 +73,7 @@
   - [x] 支持多项式函数，如`x^3+x+1`
   - [x] 支持上述函数的复合形式，如`sin(x^2+1)*ln(x^3*cos(2*x))/(x^2+1)`
 
-##### 第五轮迭代
+#### 第五轮迭代
 
 - [x] 优化UI界面
 - [x] 实现给定横坐标的微分计算功能
@@ -81,6 +81,37 @@
 - [x] 实现选中函数图像的画笔颜色自定义功能
 - [x] 实现选中函数图像的阴影颜色自定义功能
 - [x] 增加输入解析式格式正确与否的提示
+
+### 单元测试
+
+#### 测试原理
+
+- 测试利用了Qt的 `QTest` 库，将`ViewModel`、`Model`、`Algorithm`层的数据整合进行测试
+- 测试代码中共有11个测试函数，测试函数覆盖：
+  - 一次函数
+  - 二次函数
+  - 三次函数
+  - 正弦函数
+  - 余弦函数
+  - 正切函数
+  - 常用对数函数
+  - 自然对数函数
+  - 绝对值函数
+  - 开方函数
+  - 复合函数
+- 在每一个测试函数中，分以下三步进行测试：
+  - 测试x，y的关系在误差范围内是否满足函数关系式
+  - 测试函数定积分计算是否在误差范围之内
+  - 测试函数微分计算是否在误差范围之内
+- 误差范围设置为`1e-3`
+
+#### 测试结果
+
+- 测试截图如下：
+
+![Test_Result](https://github.com/CcCody/MiniGrapher/raw/master/Images/Test_Result.png)
+
+- 详细测试信息可以在[Appveyor页面](https://ci.appveyor.com/project/CcCody/minigrapher-unifv)查看，由于项目前期建立的是私有仓库，所以这个页面只包含最近几次的含测试信息的内容。
 
 ### 最终运行效果图
 
@@ -127,17 +158,31 @@
 ├── Common
 │   └── etlbase.h
 ├── Doc
+│   ├── DocImages
+│   │   ├── Veiw001.png
+│   │   ├── View002.png
+│   │   ├── View003.png
+│   │   ├── View004.png
+│   │   ├── View005.png
+│   │   ├── View006.png
+│   │   ├── View007.png
+│   │   ├── View008.png
+│   │   ├── View009.png
+│   │   └── View010.png
 │   ├── MiniGrapher总体报告.md
 │   ├── MiniGrapher需求分析.md
-│   └── Model&ViewModel.md
+│   └── 个人报告-吴宁超.md
+│   └── 个人报告-余亚鑫.md
+│   └── 个人报告-萧芷晴.md
 ├── Images
-│   ├── 1:200*x.png
 │   ├── MainWindow.png
 │   ├── PlotGraph.gif
+│   ├── Test_Result.png
 │   ├── info.gif
 │   ├── interactions.gif
+│   ├── linear.png
 │   ├── random_selection_deletion.gif
-│   └── sin(2*x):(x+1).png
+│   └── sine.png
 ├── Lib
 │   ├── qcustomplot.cpp
 │   └── qcustomplot.h
@@ -148,6 +193,9 @@
 ├── README.md
 ├── Src
 │   └── libstdc++-6.dll
+├── Test
+│   ├── MiniGrapher_Test.cpp
+│   └── MiniGrapher_Test.pro
 ├── View
 │   ├── brushtool.cpp
 │   ├── brushtool.h
@@ -175,9 +223,8 @@
 │   │   └── viewmodelsink.h
 │   ├── viewmodel.cpp
 │   └── viewmodel.h
-├── appveyor.yml
-└── tree.txt
+└── appveyor.yml
 
-14 directories, 51 files
+16 directories, 65 files
 ```
 
